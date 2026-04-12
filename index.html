@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Magaby Hairstyle | Estilista de Novias en Panamá</title>
+  <meta name="description"
+    content="Magaby Hairstyle, la maga de las novias. Estilista nupcial en Panamá con 20 años de experiencia. Especialista en bodas de destino, peinados eclesiásticos y civiles.">
+  <meta name="keywords"
+    content="peinados de novia, bridal hair panama, destination wedding panama, estilista nupcial, Magaby Hairstyle, boda en playa bonita panama, buenaventura weddings, peinado de novia panama">
+  <meta name="author" content="Maria Gabriela Vargas - Magaby Hairstyle">
+
+  <meta property="og:title" content="Magaby Hairstyle — La maga de las NOVIAS">
+  <meta property="og:description"
+    content="Esculpiendo peinados con técnica, proporción y un toque de magia. Servicio premium para novias locales e internacionales en Panamá.">
+  <meta property="og:image" content="https://tudominio.com/ruta-a-tu-foto-principal.jpg">
+  <meta property="og:url" content="https://tudominio.com">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <div class="loader" id="loader">
+    <div class="loader-text">
+      <span style="animation-delay:.1s">M</span><span style="animation-delay:.15s">a</span><span
+        style="animation-delay:.2s">g</span><span style="animation-delay:.25s">a</span><span
+        style="animation-delay:.3s">b</span><span style="animation-delay:.35s">y</span>
+    </div>
+    <div class="loader-line"></div>
+    <div class="loader-sub" id="loaderSub">La maga de las novias</div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#inicio" data-i18n data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="#sobre-mi" data-i18n data-es="Magaby" data-en="About">Magaby</a>
+    <a href="#servicios" data-i18n data-es="Servicios" data-en="Services">Servicios</a>
+    <a href="galeria.html" data-i18n data-es="Galería" data-en="Gallery">Galería</a>
+    <a href="#guia" data-i18n data-es="La Guía" data-en="The Guide">La Guía</a>
+    <a href="#tarifas" data-i18n data-es="Tarifas" data-en="Rates">Tarifas</a>
+    <a href="#contacto" data-i18n data-es="Contacto" data-en="Contact">Contacto</a>
+    <div class="mobile-lang">
+      <button class="lang-btn active" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+
+  <nav id="mainNav">
+    <a href="#inicio" class="nav-logo">
+      <img src="images/logo.png" alt="Logo Magaby Hairstyle" class="logo-img">
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#sobre-mi" data-i18n data-es="Magaby" data-en="About">Magaby</a></li>
+        <li><a href="#servicios" data-i18n data-es="Detalles" data-en="Details">Detalles</a></li>
+        <li><a href="galeria.html" data-i18n data-es="Galería" data-en="Gallery">Galería</a></li>
+        <li><a href="#guia" data-i18n data-es="Guía" data-en="Guide">Guía</a></li>
+        <li><a href="#tarifas" data-i18n data-es="Tarifas" data-en="Rates">Tarifas</a></li>
+        <li><a href="#contacto" data-i18n data-es="Contacto" data-en="Contact">Contacto</a></li>
+      </ul>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero" id="inicio">
+    <div class="hero-left">
+      <p class="hero-eyebrow" data-i18n data-es="Estilista Nupcial · Panamá" data-en="Bridal Hairstylist · Panama">
+        Estilista Nupcial · Panamá</p>
+      <h1 class="hero-title">
+        <div class="word"><span data-i18n data-es="La" data-en="The">La</span></div> 
+        <div class="word"><span data-i18n data-es="maga" data-en="magician">maga</span></div><br>
+        <div class="word"><span data-i18n data-es="de" data-en="of">de</span></div> 
+        <div class="word"><span data-i18n data-es="las" data-en="the">las</span></div><br>
+        <div class="word"><span><em data-i18n data-es="novias" data-en="brides">novias</em></span></div>
+      </h1>
+      <p class="hero-desc" data-i18n
+        data-es="Más que un trabajo, es mi pasión. Esculpiendo cabellos con técnica, proporción y un toque de magia para que brilles en tu día más importante."
+        data-en="More than a job, it's my passion. Sculpting hair with technique, proportion, and a touch of magic so you shine on your most important day.">
+        Más que un trabajo, es mi pasión. Esculpiendo cabellos con técnica, proporción y un toque de magia para que
+        brilles en tu día más importante.
+      </p>
+      <div class="hero-cta">
+        <a href="#contacto" class="btn-primary" data-i18n data-es="Reservar Fecha" data-en="Book Date">Reservar
+          Fecha</a>
+        <a href="#tarifas" class="btn-ghost" data-i18n data-es="Ver Tarifas" data-en="View Rates">Ver Tarifas</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-img-main">
+        <div class="hero-pattern"></div>
+        <svg class="hero-floral" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="150" cy="150" r="140" stroke="#b8976a" stroke-width="1" stroke-dasharray="8 4" />
+          <circle cx="150" cy="150" r="100" stroke="#9b7eb0" stroke-width=".5" />
+          <path d="M150 10C150 10 170 80 150 150 130 80 150 10Z" fill="#9b7eb0" opacity=".3" />
+          <path d="M290 150C290 150 220 170 150 150 220 130 290 150Z" fill="#9b7eb0" opacity=".3" />
+          <path d="M150 290C150 290 130 220 150 150 170 220 150 290Z" fill="#9b7eb0" opacity=".3" />
+          <path d="M10 150C10 150 80 130 150 150 80 170 10 150Z" fill="#9b7eb0" opacity=".3" />
+          <circle cx="150" cy="150" r="20" fill="#e2d4ea" opacity=".6" />
+        </svg>
+      </div>
+      <div class="hero-float-card">
+        <div class="float-card-label" data-i18n data-es="Trayectoria" data-en="Experience">Trayectoria</div>
+        <div class="float-card-value">20</div>
+        <div class="float-card-sub" data-i18n data-es="años de experiencia" data-en="years of experience">años de
+          experiencia</div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span class="scroll-label">Scroll</span>
+    </div>
+  </section>
+
+  <section class="about" id="sobre-mi">
+    <div class="about-left reveal">
+      <div class="about-img-frame">
+        <div class="about-img-inner"></div>
+        <img src="images/1.jpg" alt="Maria Gabriela"
+          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+      </div>
+      <div class="about-badge">
+        <div class="about-badge-num">12</div>
+        <div class="about-badge-text" data-i18n data-es="años exclusivos en novias" data-en="years exclusive in bridal">
+          años exclusivos en novias</div>
+      </div>
+    </div>
+    <div class="about-right">
+      <p class="section-eyebrow reveal" data-i18n data-es="Conóceme" data-en="Get to know me">Conóceme</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html
+        data-es="Me llamo Maria Gabriela,<br>mejor conocida como <em>Magaby</em>"
+        data-en="My name is Maria Gabriela,<br>better known as <em>Magaby</em>">Me llamo Maria Gabriela,<br>mejor
+        conocida como <em>Magaby</em></h2>
+      <p class="about-text reveal reveal-delay-2" data-i18n
+        data-es="Me llamo María Gabriela, mejor conocida como Magaby... No me extenderé mucho, solo quiero que te sientas cómoda y en confianza. Tengo 20 años de experiencia como estilista, trabajando con cabellos de todo tipo, y desde hace 12 años me enfoco exclusivamente en peinados para toda ocasión. Amo lo que hago; más que un trabajo, es mi pasión. Desde niña descubrí estas habilidades en mí y siempre supe que quería peinar. No me preguntes cómo, ¡solo lo sabía! El servicio es mi vocación. Me encanta ver feliz a las personas, en especial a las novias, y me fascina compartir momentos especiales y ser parte de ellos. Solo quiero que sepas que, así como es un día especial para ti, para mí también lo es, porque me permite experimentar y aprender de una gran variedad de personalidades. Cada novia es una historia, un estilo y una esencia."
+        data-en="My name is María Gabriela, better known as Magaby... I won't go on for too long; I just want you to feel comfortable and confident. I have 20 years of experience as a hair stylist, working with all hair types, and for the last 12 years, I have focused exclusively on event styling. I love what I do; more than a job, it's my passion. Since I was a little girl, I discovered these skills within myself and always knew I wanted to style hair. Don't ask me how, I just knew it! Service is my calling. I love making people happy, especially brides, and I am thrilled to share special moments and be a part of them. I just want you to know that, just as it is a special day for you, it is also special for me, because it allows me to experience and learn from a great variety of personalities. Every bride is a story, a style, and an essence.">
+        Me llamo María Gabriela, mejor conocida como Magaby... No me extenderé mucho, solo quiero que te sientas cómoda
+        y en confianza. Tengo 20 años de experiencia como estilista, trabajando con cabellos de todo tipo, y desde hace
+        12 años me enfoco exclusivamente en peinados para toda ocasión. Amo lo que hago; más que un trabajo, es mi
+        pasión. Desde niña descubrí estas habilidades en mí y siempre supe que quería peinar. No me preguntes cómo,
+        ¡solo lo sabía! El servicio es mi vocación. Me encanta ver feliz a las personas, en especial a las novias, y me
+        fascina compartir momentos especiales y ser parte de ellos. Solo quiero que sepas que, así como es un día
+        especial para ti, para mí también lo es, porque me permite experimentar y aprender de una gran variedad de
+        personalidades. Cada novia es una historia, un estilo y una esencia.
+      </p>
+      <p class="about-text reveal reveal-delay-2" data-i18n
+        data-es="Una parte de mí que muchos no conocen es que estudié Diseño Gráfico en paralelo al estilismo, una habilidad artística que ha sido de gran ayuda y complemento para mis peinados. Descubrí que el estilismo, más que peinar, es una ciencia de las artes: saber de proporción anatómica, color, forma, textura, morfopsicología y diagramación es esencial a la hora de realizar un peinado. Esto, aunado a la base artística conceptual del diseño, aporta mucha funcionalidad y armonía a mis resultados."
+        data-en="A part of me that many don't know is that I studied Graphic Design alongside hair styling, an artistic skill that has been a great help and complement to my hairstyles. I discovered that styling, more than just doing hair, is a science of the arts: understanding anatomical proportion, color, shape, texture, morphopsychology, and layout is essential when creating a hairstyle. This, coupled with my conceptual artistic design background, brings a lot of functionality and harmony to my results.">
+        Una parte de mí que muchos no conocen es que estudié Diseño Gráfico en paralelo al estilismo, una habilidad
+        artística que ha sido de gran ayuda y complemento para mis peinados. Descubrí que el estilismo, más que peinar,
+        es una ciencia de las artes: saber de proporción anatómica, color, forma, textura, morfopsicología y
+        diagramación es esencial a la hora de realizar un peinado. Esto, aunado a la base artística conceptual del
+        diseño, aporta mucha funcionalidad y armonía a mis resultados.
+      </p>
+      <p class="about-text reveal reveal-delay-4" data-i18n
+        data-es="Estudié estilismo integral y estoy certificada por marcas reconocidas como Wella Professionals, Gama Italy, Ybera Paris, Nouvelle y Novex."
+        data-en="I studied comprehensive hair styling and am certified by renowned brands such as Wella Professionals, Gama Italy, Ybera Paris, Nouvelle, and Novex.">
+        Estudié estilismo integral y estoy certificada por marcas reconocidas como Wella Professionals, Gama Italy,
+        Ybera Paris, Nouvelle y Novex.
+      </p>
+      <div class="about-signature reveal reveal-delay-4">Magaby</div>
+    </div>
+  </section>
+
+  <section class="services" id="servicios">
+    <div class="services-header">
+      <p class="section-eyebrow reveal" data-i18n data-es="Calidad Premium" data-en="Premium Quality">Calidad Premium
+      </p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html
+        data-es="¿Qué incluye tu<br><em>peinado nupcial?</em>"
+        data-en="What does your<br><em>bridal styling</em> include?">¿Qué incluye tu<br><em>peinado nupcial?</em></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <svg class="service-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        </svg>
+        <h3 class="service-title" data-i18n data-es="Textura y Relleno" data-en="Texture & Filling">Textura y Relleno
+        </h3>
+        <p class="service-desc" data-i18n
+          data-es="Preparación del cabello con texturizador y uso de técnicas de relleno para crear el volumen perfecto y la forma ideal de tu peinado."
+          data-en="Hair preparation with texturizer and filling techniques to create the perfect volume and ideal shape for your hairstyle.">
+          Preparación del cabello con texturizador y uso de técnicas de relleno.</p>
+        <div class="service-line"></div>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num">02</div>
+        <svg class="service-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12h18M12 3v18M18.36 5.64l-12.72 12.72M5.64 5.64l12.72 12.72" />
+        </svg>
+        <h3 class="service-title" data-i18n data-es="Extensiones & Sombra" data-en="Extensions & Shadow">Extensiones &
+          Sombra</h3>
+        <p class="service-desc" data-i18n
+          data-es="Aplicación profesional de tus extensiones y uso de sombra capilar estratégica para disimular cualquier deficiencia o alopecia leve."
+          data-en="Professional application of your extensions and strategic capillary shadow to conceal any light deficiencies or alopecia.">
+          Aplicación profesional de tus extensiones y uso de sombra capilar.</p>
+        <div class="service-line"></div>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-num">03</div>
+        <svg class="service-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6z" />
+        </svg>
+        <h3 class="service-title" data-i18n data-es="Velo y Tocado" data-en="Veil & Headpiece">Velo y Tocado</h3>
+        <p class="service-desc" data-i18n
+          data-es="Colocación experta y segura de tu velo y accesorios para que se mantengan intactos durante toda la ceremonia y celebración."
+          data-en="Expert and secure placement of your veil and accessories so they remain intact throughout the ceremony and celebration.">
+          Colocación experta y segura de tu velo y accesorios decorativos.</p>
+        <div class="service-line"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <svg class="service-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+        <h3 class="service-title" data-i18n data-es="Fijación Extrema" data-en="Extreme Hold">Fijación Extrema</h3>
+        <p class="service-desc" data-i18n
+          data-es="A diferencia de un peinado general, usamos productos de altísima resistencia para un acabado pulido a prueba de clima, lágrimas y baile."
+          data-en="Unlike regular styling, we use extremely high-resistance products for a polished finish that is weather, tear, and dance-proof.">
+          Usamos productos de altísima resistencia para un acabado a prueba de todo.</p>
+        <div class="service-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="galeria">
+    <div class="gallery-header">
+      <p class="section-eyebrow reveal" style="color:var(--gold)" data-i18n data-es="Portafolio" data-en="Portfolio">Portafolio</p>
+      <h2 class="section-title reveal reveal-delay-1" style="color:var(--cream)" data-i18n-html
+        data-es="Magia en<br><em>cada detalle</em>" data-en="Magic in<br><em>every detail</em>">Magia en<br><em>cada detalle</em></h2>
+    </div>
+
+    <div class="gallery-filters reveal">
+      <button class="filter-btn active" data-filter="all" data-i18n data-es="Todos" data-en="All">Todos</button>
+      <button class="filter-btn" data-filter="eclesiastico" data-i18n data-es="Eclesiástico" data-en="Church">Eclesiástico</button>
+      <button class="filter-btn" data-filter="civil" data-i18n data-es="Civil & Playa" data-en="Civil & Beach">Civil & Playa</button>
+      <button class="filter-btn" data-filter="recogido" data-i18n data-es="Recogidos" data-en="Updos">Recogidos</button>
+      <button class="filter-btn" data-filter="suelto" data-i18n data-es="Sueltos & Ondas" data-en="Down & Waves">Sueltos & Ondas</button>
+      <button class="filter-btn" data-filter="damas" data-i18n data-es="Damas" data-en="Bridesmaids">Damas</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item reveal reveal-delay-1" data-category="recogido">
+        <img src="https://images.unsplash.com/photo-1595956424021-998f4cd58fc3?auto=format&fit=crop&q=80&w=800" alt="Recogido elegante Magaby Hairstyle">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+        <span class="gallery-cat-tag" data-i18n data-es="Recogido" data-en="Updo">Recogido</span>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-category="eclesiastico">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" alt="Peinado boda eclesiástica Panamá">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+        <span class="gallery-cat-tag" data-i18n data-es="Eclesiástico" data-en="Church">Eclesiástico</span>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" data-category="suelto">
+        <img src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?auto=format&fit=crop&q=80&w=800" alt="Peinado suelto con ondas nupcial">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+        <span class="gallery-cat-tag" data-i18n data-es="Suelto" data-en="Down">Suelto</span>
+      </div>
+      <div class="gallery-item reveal" data-category="civil">
+        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&q=80&w=800" alt="Novia boda civil playa Panamá">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+        <span class="gallery-cat-tag" data-i18n data-es="Civil" data-en="Civil">Civil</span>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-category="damas">
+        <img src="https://images.unsplash.com/photo-1543083477-4f785aeafaa9?auto=format&fit=crop&q=80&w=800" alt="Peinado damas de honor Magaby">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+        <span class="gallery-cat-tag" data-i18n data-es="Damas" data-en="Bridesmaids">Damas</span>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-category="eclesiastico">
+        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=800" alt="Destination wedding peinado Panamá">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+        <span class="gallery-cat-tag" data-i18n data-es="Eclesiástico" data-en="Church">Eclesiástico</span>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:4.5rem;" class="reveal">
+      <a href="galeria.html" class="btn-ghost" style="display:inline-flex;justify-content:center;color:var(--cream);">
+        <span data-i18n data-es="Ver galería completa" data-en="View full gallery">Ver galería completa</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="process" id="guia">
+    <div class="process-header">
+      <p class="section-eyebrow reveal" data-i18n data-es="Información Importante" data-en="Important Information">
+        Información Importante</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html data-es="Preparación para el<br><em>Día Cero</em>"
+        data-en="Preparation for<br><em>Day Zero</em>">Preparación para el<br><em>Día Cero</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-circle">I</div>
+        <h3 class="step-title" data-i18n data-es="La Prueba" data-en="The Trial">La Prueba</h3>
+        <p class="step-desc" data-i18n
+          data-es="Es esencial conversar para definir tu estilo. La prueba evita sorpresas indeseadas y asegura que el diseño se adecúe a tu personalidad."
+          data-en="It's essential to define your style. The trial prevents unwanted surprises and ensures the design fits your personality perfectly.">
+          Es esencial conversar para definir tu estilo sin sorpresas indeseadas.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-circle">II</div>
+        <h3 class="step-title" data-i18n data-es="Lavado Correcto" data-en="Proper Washing">Lavado Correcto</h3>
+        <p class="step-desc" data-i18n
+          data-es="El cabello debe estar totalmente limpio, lavado SOLO con champú. Sin residuos de cremas de peinar, acondicionador, cera o mascarillas."
+          data-en="Hair must be completely clean, washed ONLY with shampoo. No residue of styling creams, conditioner, wax, or masks.">
+          El cabello debe estar limpio, lavado SOLO con champú. Sin acondicionador.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-circle">III</div>
+        <h3 class="step-title" data-i18n data-es="Secado" data-en="Drying">Secado</h3>
+        <p class="step-desc" data-i18n
+          data-es="Debes tenerlo secado al natural o con un blower reciente. Importante: NO SE DEBE PLANCHAR bajo ninguna circunstancia antes del peinado."
+          data-en="It should be air-dried or recently blow-dried. Important: IT MUST NOT BE FLAT-IRONED under any circumstances before styling.">
+          Secado al natural o con blower. NO SE DEBE PLANCHAR.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-circle">IV</div>
+        <h3 class="step-title" data-i18n data-es="Extensiones" data-en="Extensions">Extensiones</h3>
+        <p class="step-desc" data-i18n
+          data-es="Si tu estilo requiere mayor longitud o volumen dramático, aplicaré tus extensiones. Debes proporcionarlas tú el día del evento."
+          data-en="If your style requires more length or dramatic volume, I will apply your extensions. You must provide them on the day of the event.">
+          Si tu estilo requiere longitud extra, aplicaré las extensiones que me proporciones.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="packages" id="tarifas">
+    <div class="packages-header">
+      <p class="section-eyebrow reveal" data-i18n data-es="Inversión" data-en="Investment">Inversión</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html data-es="Tarifas por<br><em>Ubicación</em>"
+        data-en="Rates by<br><em>Location</em>">Tarifas por<br><em>Ubicación</em></h2>
+    </div>
+
+    <div class="packages-tabs reveal">
+      <button class="pkg-tab active" data-panel="novias" data-i18n data-es="Peinados de Novia" data-en="Bridal Hair">Peinados de Novia</button>
+      <button class="pkg-tab coming-soon" data-panel="maquillaje" data-i18n data-es="Maquillaje" data-en="Makeup">Maquillaje</button>
+      <button class="pkg-tab coming-soon" data-panel="quinces" data-i18n data-es="Quinceañeras" data-en="Quinceaneras">Quinceañeras</button>
+    </div>
+
+    <div class="packages-panel active" id="panel-novias">
+      <div class="packages-grid">
+        <div class="package-card reveal">
+          <div class="package-badge" style="background:var(--lavender-d)" data-i18n data-es="Local" data-en="Local">Local</div>
+          <h3 class="package-name">Ciudad de Panamá</h3>
+          <div class="package-price"><sup>$</sup>250</div>
+          <div class="package-period" data-i18n data-es="boda eclesiástica" data-en="church wedding">boda eclesiástica</div>
+          <div class="package-divider"></div>
+          <ul class="package-features">
+            <li><span style="font-weight:600;color:var(--deep)">Boda Civil:</span> $140</li>
+            <li><span style="font-weight:600;color:var(--deep)">Damas / Invitadas:</span> $60</li>
+            <li data-i18n data-es="Prueba de Peinado: $100" data-en="Hair Trial: $100">Prueba de Peinado: $100</li>
+            <li data-i18n data-es="Prueba dentro de la ciudad, sin domicilio" data-en="Trial done within the city">Prueba dentro de la ciudad, sin domicilio</li>
+          </ul>
+          <a href="#contacto" class="package-btn" data-i18n data-es="Consultar disponibilidad" data-en="Check availability">Consultar disponibilidad</a>
+        </div>
+
+        <div class="package-card featured reveal reveal-delay-1">
+          <div class="package-badge" data-i18n data-es="Zonas Especiales" data-en="Special Zones">Zonas Especiales</div>
+          <h3 class="package-name">Westin Playa Bonita<br>& Summit Resort</h3>
+          <div class="package-price"><sup>$</sup>300</div>
+          <div class="package-period" data-i18n data-es="boda eclesiástica" data-en="church wedding">boda eclesiástica</div>
+          <div class="package-divider"></div>
+          <ul class="package-features">
+            <li><span style="font-weight:600;color:var(--cream)">Boda Civil:</span> $175</li>
+            <li><span style="font-weight:600;color:var(--cream)">Damas / Invitadas:</span> $75</li>
+            <li data-i18n data-es="Atención directo en hotel" data-en="Direct service at hotel">Atención directo en hotel</li>
+            <li data-i18n data-es="Incluye traslado y servicio premium" data-en="Includes travel and premium service">Incluye traslado y servicio premium</li>
+          </ul>
+          <a href="#contacto" class="package-btn" data-i18n data-es="Consultar disponibilidad" data-en="Check availability">Consultar disponibilidad</a>
+        </div>
+
+        <div class="package-card reveal reveal-delay-2">
+          <div class="package-badge" style="background:var(--lavender-d)" data-i18n data-es="Interior" data-en="Interior">Interior</div>
+          <h3 class="package-name">El Valle, Buenaventura,<br>Colón & Cerro Azul</h3>
+          <div class="package-price"><sup>$</sup>320+</div>
+          <div class="package-period" data-i18n data-es="boda eclesiástica" data-en="church wedding">boda eclesiástica</div>
+          <div class="package-divider"></div>
+          <ul class="package-features">
+            <li><span style="font-weight:600;color:var(--deep)">Colón / Cerro Azul:</span> Civil $210 · Damas $85</li>
+            <li><span style="font-weight:600;color:var(--deep)">Buenaventura / El Valle:</span> Ecles $370 · Civil $280 · Damas $95</li>
+          </ul>
+          <a href="#contacto" class="package-btn" data-i18n data-es="Consultar disponibilidad" data-en="Check availability">Consultar disponibilidad</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="packages-panel" id="panel-maquillaje">
+      <div class="coming-soon-view reveal">
+        <span class="cs-icon">Pronto</span>
+        <h3 data-i18n data-es="Servicio de Maquillaje" data-en="Makeup Service">Servicio de Maquillaje</h3>
+        <p data-i18n data-es="Muy pronto Magaby Hairstyle incorporará servicios de maquillaje nupcial de alta definición. Síguenos en Instagram para ser la primera en enterarte." data-en="Very soon Magaby Hairstyle will add high-definition bridal makeup services. Follow us on Instagram to be the first to know.">Muy pronto Magaby Hairstyle incorporará servicios de maquillaje nupcial de alta definición. Síguenos en Instagram para ser la primera en enterarte.</p>
+        <a href="https://instagram.com/magabyhairstyle" target="_blank" class="cs-notify" data-i18n data-es="Seguir en Instagram" data-en="Follow on Instagram">Seguir en Instagram</a>
+      </div>
+    </div>
+
+    <div class="packages-panel" id="panel-quinces">
+      <div class="coming-soon-view reveal">
+        <span class="cs-icon">Pronto</span>
+        <h3 data-i18n data-es="Paquetes de Quinceañeras" data-en="Quinceanera Packages">Paquetes de Quinceañeras</h3>
+        <p data-i18n data-es="Estamos diseñando paquetes especiales para quinceañeras. Pronto tendremos opciones para que luzca espectacular en su día más especial." data-en="We are designing special packages for quinceaneras. Soon we will have options for her to look spectacular on her most special day.">Estamos diseñando paquetes especiales para quinceañeras. Pronto tendremos opciones para que luzca espectacular en su día más especial.</p>
+        <a href="#contacto" class="cs-notify" data-i18n data-es="Contactar para más info" data-en="Contact for more info">Contactar para más info</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <div class="contact-left">
+      <p class="section-eyebrow reveal" data-i18n data-es="Contacto" data-en="Contact">Contacto</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html data-es="Asegura tu fecha<br><em>conmigo</em>"
+        data-en="Secure your date<br><em>with me</em>">Asegura tu fecha<br><em>conmigo</em></h2>
+
+      <div class="contact-info">
+        <div class="contact-item reveal reveal-delay-2">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label" data-i18n data-es="Estudio" data-en="Studio">Estudio</div>
+            <div class="contact-item-value">BEAUTIFY IMAGE STUDIO</div>
+            <div style="font-size:0.8rem; color:var(--mist); margin-top:0.3rem; line-height:1.4">Urbanización El Carmen,
+              Ave. Ramon Arias<br>Plaza Korintho</div>
+          </div>
+        </div>
+
+        <div class="contact-item reveal reveal-delay-3">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+              </path>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label">WhatsApp</div>
+            <div class="contact-item-value">+507 6566-0761</div>
+          </div>
+        </div>
+
+        <div class="contact-item reveal reveal-delay-4">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label" data-i18n data-es="Datos Bancarios" data-en="Bank Details">Datos Bancarios
+            </div>
+            <div class="contact-item-value" style="font-size:0.9rem">Banistmo Nro Cta 0114606123<br>Ahorro - Maria
+              Gabriela Vargas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-map reveal reveal-delay-5">
+        <iframe
+          src="https://maps.google.com/maps?q=Plaza%20Korintho,%20Ave.%20Ramon%20Arias,%20Panama&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+      </div>
+    </div>
+
+    <form class="contact-form reveal reveal-delay-2" id="whatsappForm">
+      <div class="form-head">
+        <div class="form-head-title">Reserva tu fecha</div>
+        <div class="form-head-sub" data-i18n data-es="Respondo en menos de 24 horas" data-en="I respond within 24 hours">Respondo en menos de 24 horas</div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" data-i18n data-es="Tu nombre" data-en="Your name">Tu nombre</label>
+          <input type="text" id="contactName" class="form-input" placeholder="María García" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-i18n data-es="Fecha del evento" data-en="Event date">Fecha del evento</label>
+          <input type="text" id="contactDate" class="form-input" placeholder="15 de junio, 2026" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" data-i18n data-es="Ubicación (Hotel/Lugar)" data-en="Location (Hotel/Venue)">Ubicación (Hotel/Lugar)</label>
+        <input type="text" id="contactLocation" class="form-input" placeholder="Ej: Westin Playa Bonita" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" data-i18n data-es="Tipo de Boda" data-en="Wedding Type">Tipo de Boda</label>
+        <div class="form-select-wrap">
+          <select class="form-select" id="serviceSelect">
+            <option data-es="Boda Eclesiástica" data-en="Church Wedding">Boda Eclesiástica</option>
+            <option data-es="Boda Civil" data-en="Civil Wedding">Boda Civil</option>
+            <option data-es="Solo Prueba de Peinado" data-en="Hair Trial Only">Solo Prueba de Peinado</option>
+            <option data-es="Peinado de Dama / Invitada" data-en="Bridesmaid / Guest Hair">Peinado de Dama / Invitada</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" data-i18n data-es="Servicios adicionales" data-en="Additional services">Servicios adicionales</label>
+        <div class="service-checks">
+          <label class="check-item">
+            <input type="checkbox" name="extras" value="extensiones">
+            <span data-i18n data-es="Extensiones" data-en="Extensions">Extensiones</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" name="extras" value="velo">
+            <span data-i18n data-es="Velo / Tocado" data-en="Veil / Headpiece">Velo / Tocado</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" name="extras" value="damas">
+            <span data-i18n data-es="Peinado de Damas" data-en="Bridesmaid Styling">Peinado de Damas</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" name="extras" value="prueba">
+            <span data-i18n data-es="Prueba previa" data-en="Pre-trial">Prueba previa</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <div class="form-group">
+        <label class="form-label" data-i18n data-es="Detalles adicionales" data-en="Additional details">Detalles adicionales</label>
+        <textarea id="contactMessage" class="form-textarea" placeholder="Número de damas, tipo de cabello, dudas sobre extensiones..."></textarea>
+      </div>
+
+      <button type="submit" class="form-submit" id="formSubmit" data-i18n data-es="Escribir al WhatsApp →" data-en="Message on WhatsApp →">Escribir al WhatsApp →</button>
+      <p class="form-note" data-i18n data-es="Al enviar, serás redirigida a WhatsApp con tu consulta lista." data-en="On submit, you'll be redirected to WhatsApp with your inquiry ready.">Al enviar, serás redirigida a WhatsApp con tu consulta lista.</p>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <span class="logo-text" style="color:var(--cream)">Magaby Hairstyle</span>
+        </div>
+        <p class="footer-tagline" data-i18n
+          data-es="La maga de las novias. El arte de peinar es mi forma de honrar la belleza de tu alma."
+          data-en="The magician of brides. The art of styling is my way of honoring the beauty of your soul.">
+          La maga de las novias. El arte de peinar es mi forma de honrar la belleza de tu alma.
+        </p>
+        <div class="footer-social">
+          <a class="social-btn" href="https://instagram.com/magabyhairstyle" target="_blank" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a class="social-btn" href="https://facebook.com/magabyhairstyle" target="_blank" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n data-es="Ubicaciones" data-en="Locations">Ubicaciones</div>
+        <ul class="footer-links">
+          <li><a href="#">Ciudad de Panamá</a></li>
+          <li><a href="#">Westin Playa Bonita</a></li>
+          <li><a href="#">Summit Resort</a></li>
+          <li><a href="#">El Valle / Buenaventura</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n data-es="Servicios" data-en="Services">Servicios</div>
+        <ul class="footer-links">
+          <li><a href="#">Boda Eclesiástica</a></li>
+          <li><a href="#">Boda Civil</a></li>
+          <li><a href="#">Prueba de Peinado</a></li>
+          <li><a href="#">Peinado de Damas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copyright" data-i18n data-es="© 2026 Magaby Hairstyle. Todos los derechos reservados."
+        data-en="© 2026 Magaby Hairstyle. All rights reserved.">© 2026 Magaby Hairstyle. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-close" id="lightboxClose">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </div>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Vista ampliada">
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Magaby Hairstyle",
+    "image": "https://tudominio.com/ruta-a-tu-logo.png",
+    "description": "Estilista nupcial en Panamá con 20 años de experiencia, especializada en peinados de novia, bodas civiles y eclesiásticas.",
+    "@id": "https://tudominio.com",
+    "url": "https://tudominio.com",
+    "telephone": "+50765660761",
+    "priceRange": "$$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Urbanización El Carmen, Ave. Ramon Arias, Plaza Korintho (BEAUTIFY IMAGE STUDIO)",
+      "addressLocality": "Ciudad de Panamá",
+      "addressRegion": "Panamá",
+      "addressCountry": "PA"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://instagram.com/magabyhairstyle",
+      "https://facebook.com/magabyhairstyle"
+    ]
+  }
+  </script>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
