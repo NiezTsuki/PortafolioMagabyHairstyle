@@ -8,8 +8,6 @@
   <meta name="description" content="Explora el portafolio de Magaby Hairstyle. Peinados de alta costura para novias de destino, bodas eclesiásticas y civiles en Panamá.">
   <meta name="keywords" content="galeria novias panama, peinados de novia, bridal hair portfolio, Magaby Hairstyle panama, peinado recogido novia">
 
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="styles.css">
   
   <style>
@@ -27,6 +25,12 @@
   <div class="cursor-ring" id="cursorRing"></div>
 
   <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose" aria-label="Cerrar menú">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
     <a href="index.html" data-i18n data-es="← Volver al Inicio" data-en="← Back to Home">← Volver al Inicio</a>
     <a href="index.html#contacto" data-i18n data-es="Reservar" data-en="Book">Reservar</a>
     <div class="mobile-lang">
@@ -57,10 +61,9 @@
   <section class="gallery" style="padding-top: 10rem; min-height: 100vh;">
     <div class="gallery-header">
       <p class="section-eyebrow reveal" style="color:var(--gold)" data-i18n data-es="Colección Completa" data-en="Full Collection">Colección Completa</p>
-      <h1 class="section-title reveal reveal-delay-1" style="color:var(--cream)" data-i18n-html data-es="El arte en<br><em>imágenes</em>" data-en="Art in<br><em>pictures</em>">El arte en<br><em>imágenes</em></h1>
+      <h1 class="section-title reveal reveal-delay-1" data-i18n-html data-es="El arte en<br><em>imágenes</em>" data-en="Art in<br><em>pictures</em>">El arte en<br><em>imágenes</em></h1>
     </div>
     
-    <!-- Filtros -->
     <div class="gallery-filters reveal" style="margin-bottom:3.5rem;">
       <button class="filter-btn active" data-filter="all" data-i18n data-es="Todos" data-en="All">Todos</button>
       <button class="filter-btn" data-filter="eclesiastico" data-i18n data-es="Eclesiástico" data-en="Church">Eclesiástico</button>
@@ -113,7 +116,7 @@
     <div class="footer-top">
       <div>
         <div class="footer-brand">
-          <span class="logo-text" style="color:var(--cream)">Magaby Hairstyle</span>
+          <span class="logo-text">Magaby Hairstyle</span>
         </div>
         <p class="footer-tagline">La maga de las novias. El arte de peinar es mi forma de honrar la belleza de tu alma.</p>
         <div class="footer-social">

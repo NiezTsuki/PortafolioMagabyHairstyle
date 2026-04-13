@@ -28,6 +28,7 @@ if (cur && window.matchMedia('(pointer:fine)').matches) {
 /* LÓGICA DEL MENÚ HAMBURGUESA (MÓVILES) */
 const ham = document.getElementById('hamburger');
 const mob = document.getElementById('mobileMenu');
+const mobClose = document.getElementById('mobileClose'); // <-- Capturamos la nueva "X"
 
 if (ham && mob) {
   ham.addEventListener('click', () => {
@@ -35,6 +36,15 @@ if (ham && mob) {
     mob.classList.toggle('open');
     document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
   });
+  
+  // <-- Lógica para cerrar el menú con la "X"
+  if (mobClose) {
+    mobClose.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
   
   mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     ham.classList.remove('open');
@@ -171,13 +181,24 @@ if (whatsappForm) {
     const service = document.getElementById('serviceSelect').value;
     const message = document.getElementById('contactMessage').value;
 
+    // --- CAPTURA DE SERVICIOS ADICIONALES (CHECKBOXES) ---
+    const extrasElements = document.querySelectorAll('input[name="extras"]:checked');
+    const extrasList = Array.from(extrasElements).map(cb => cb.nextElementSibling.textContent.trim());
+
     const phoneNumber = '50765660761';
 
     let waText = `¡Hola Magaby! Quisiera consultar disponibilidad para mi boda:\n\n`;
     waText += `*Novia:* ${name}\n`;
     waText += `*Fecha:* ${date}\n`;
     waText += `*Lugar/Hotel:* ${location}\n`;
-    waText += `*Servicio:* ${service}\n\n`;
+    waText += `*Servicio:* ${service}\n`;
+    
+    // Si la usuaria seleccionó extras, los agregamos al mensaje
+    if (extrasList.length > 0) {
+      waText += `*Extras:* ${extrasList.join(', ')}\n`;
+    }
+    
+    waText += `\n`; // Espacio antes de los detalles
     
     if(message.trim() !== '') {
       waText += `*Detalles:* ${message}`;
@@ -187,7 +208,7 @@ if (whatsappForm) {
     window.open(waUrl, '_blank');
 
     submitBtn.textContent = currentLang === 'es' ? '¡Redirigiendo...!' : 'Redirecting...!';
-    submitBtn.style.background = 'var(--rose)';
+    submitBtn.style.background = 'var(--gold)'; // Usamos dorado para mantener la elegancia
     
     setTimeout(() => {
       submitBtn.textContent = currentLang === 'es' ? 'Escribir al WhatsApp →' : 'Message on WhatsApp →';

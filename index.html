@@ -19,10 +19,6 @@
   <meta property="og:url" content="https://tudominio.com">
   <meta property="og:type" content="website">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -42,6 +38,12 @@
   </div>
 
   <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose" aria-label="Cerrar menú">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
     <a href="#inicio" data-i18n data-es="Inicio" data-en="Home">Inicio</a>
     <a href="#sobre-mi" data-i18n data-es="Magaby" data-en="About">Magaby</a>
     <a href="#servicios" data-i18n data-es="Servicios" data-en="Services">Servicios</a>
@@ -248,7 +250,7 @@
   <section class="gallery" id="galeria">
     <div class="gallery-header">
       <p class="section-eyebrow reveal" style="color:var(--gold)" data-i18n data-es="Portafolio" data-en="Portfolio">Portafolio</p>
-      <h2 class="section-title reveal reveal-delay-1" style="color:var(--cream)" data-i18n-html
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html
         data-es="Magia en<br><em>cada detalle</em>" data-en="Magic in<br><em>every detail</em>">Magia en<br><em>cada detalle</em></h2>
     </div>
 
@@ -295,7 +297,7 @@
     </div>
 
     <div style="text-align:center;margin-top:4.5rem;" class="reveal">
-      <a href="galeria.html" class="btn-ghost" style="display:inline-flex;justify-content:center;color:var(--cream);">
+      <a href="galeria.html" class="btn-ghost" style="display:inline-flex;justify-content:center;color:var(--text-dark);">
         <span data-i18n data-es="Ver galería completa" data-en="View full gallery">Ver galería completa</span>
       </a>
     </div>
@@ -381,8 +383,8 @@
           <div class="package-period" data-i18n data-es="boda eclesiástica" data-en="church wedding">boda eclesiástica</div>
           <div class="package-divider"></div>
           <ul class="package-features">
-            <li><span style="font-weight:600;color:var(--cream)">Boda Civil:</span> $175</li>
-            <li><span style="font-weight:600;color:var(--cream)">Damas / Invitadas:</span> $75</li>
+            <li><span style="font-weight:600;color:var(--text-dark)">Boda Civil:</span> $175</li>
+            <li><span style="font-weight:600;color:var(--text-dark)">Damas / Invitadas:</span> $75</li>
             <li data-i18n data-es="Atención directo en hotel" data-en="Direct service at hotel">Atención directo en hotel</li>
             <li data-i18n data-es="Incluye traslado y servicio premium" data-en="Includes travel and premium service">Incluye traslado y servicio premium</li>
           </ul>
@@ -557,7 +559,7 @@
     <div class="footer-top">
       <div>
         <div class="footer-brand">
-          <span class="logo-text" style="color:var(--cream)">Magaby Hairstyle</span>
+          <span class="logo-text">Magaby Hairstyle</span>
         </div>
         <p class="footer-tagline" data-i18n
           data-es="La maga de las novias. El arte de peinar es mi forma de honrar la belleza de tu alma."
@@ -617,37 +619,6 @@
     </div>
     <img class="lightbox-img" id="lightboxImg" src="" alt="Vista ampliada">
   </div>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HairSalon",
-    "name": "Magaby Hairstyle",
-    "image": "https://tudominio.com/ruta-a-tu-logo.png",
-    "description": "Estilista nupcial en Panamá con 20 años de experiencia, especializada en peinados de novia, bodas civiles y eclesiásticas.",
-    "@id": "https://tudominio.com",
-    "url": "https://tudominio.com",
-    "telephone": "+50765660761",
-    "priceRange": "$$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Urbanización El Carmen, Ave. Ramon Arias, Plaza Korintho (BEAUTIFY IMAGE STUDIO)",
-      "addressLocality": "Ciudad de Panamá",
-      "addressRegion": "Panamá",
-      "addressCountry": "PA"
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    "sameAs": [
-      "https://instagram.com/magabyhairstyle",
-      "https://facebook.com/magabyhairstyle"
-    ]
-  }
-  </script>
 
   <script src="script.js" defer></script>
 </body>
