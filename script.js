@@ -25,34 +25,6 @@ if (cur && window.matchMedia('(pointer:fine)').matches) {
   });
 }
 
-/* LÓGICA DEL MENÚ HAMBURGUESA (MÓVILES) */
-const ham = document.getElementById('hamburger');
-const mob = document.getElementById('mobileMenu');
-const mobClose = document.getElementById('mobileClose'); // <-- Capturamos la nueva "X"
-
-if (ham && mob) {
-  ham.addEventListener('click', () => {
-    ham.classList.toggle('open');
-    mob.classList.toggle('open');
-    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
-  });
-  
-  // <-- Lógica para cerrar el menú con la "X"
-  if (mobClose) {
-    mobClose.addEventListener('click', () => {
-      ham.classList.remove('open');
-      mob.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  }
-  
-  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    ham.classList.remove('open');
-    mob.classList.remove('open');
-    document.body.style.overflow = '';
-  }));
-}
-
 /* EFECTO DE NAVEGACIÓN AL HACER SCROLL */
 const mainNav = document.getElementById('mainNav');
 if (mainNav && !mainNav.classList.contains('nav-always-solid')) {
@@ -88,11 +60,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
-});
-
-/* ANIMACIÓN DE CASCADA PARA EL TÍTULO HERO */
-document.querySelectorAll('.hero-title .word span').forEach((el, index) => {
-  el.style.animationDelay = (1.2 + index * 0.1) + 's';
 });
 
 /* LÓGICA DEL VISOR DE IMÁGENES (LIGHTBOX GALERÍA) */
@@ -155,14 +122,59 @@ function applyLang(selectedLang) {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === selectedLang);
   });
+
+  /* Cambiar idioma del calendario Flatpickr si existe */
+  const dateInput = document.getElementById('contactDate');
+  if (dateInput && dateInput._flatpickr) {
+    dateInput._flatpickr.set('locale', selectedLang === 'es' ? 'es' : 'default');
+  }
 }
 
-// Aplicar el idioma detectado automáticamente en cuanto cargue el DOM
+/* =========================================================
+   BLINDAJE DE EVENTOS: SE EJECUTAN SÓLO CUANDO EL DOM CARGA
+   ========================================================= */
 document.addEventListener('DOMContentLoaded', () => {
   applyLang(currentLang);
+
+  /* LÓGICA DEL MENÚ HAMBURGUESA (MÓVILES) */
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileMenu');
+  const mobClose = document.getElementById('mobileClose');
+
+  if (ham && mob) {
+    ham.addEventListener('click', () => {
+      ham.classList.toggle('open');
+      mob.classList.toggle('open');
+      document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+    });
+    
+    if (mobClose) {
+      mobClose.addEventListener('click', () => {
+        ham.classList.remove('open');
+        mob.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+    
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+      document.body.style.overflow = '';
+    }));
+  }
+
+  /* INICIALIZAR CALENDARIO FLATPICKR */
+  if (typeof flatpickr !== 'undefined' && document.getElementById('contactDate')) {
+    flatpickr("#contactDate", {
+      locale: currentLang === 'es' ? 'es' : 'default', 
+      dateFormat: "d \\de F, Y",
+      minDate: "today",
+      disableMobile: true 
+    });
+  }
 });
 
-// Mantener la opción de cambiarlo manualmente mediante los botones
+/* LÓGICA BOTONES DE IDIOMA */
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
 });
@@ -181,7 +193,6 @@ if (whatsappForm) {
     const service = document.getElementById('serviceSelect').value;
     const message = document.getElementById('contactMessage').value;
 
-    // --- CAPTURA DE SERVICIOS ADICIONALES (CHECKBOXES) ---
     const extrasElements = document.querySelectorAll('input[name="extras"]:checked');
     const extrasList = Array.from(extrasElements).map(cb => cb.nextElementSibling.textContent.trim());
 
@@ -193,12 +204,11 @@ if (whatsappForm) {
     waText += `*Lugar/Hotel:* ${location}\n`;
     waText += `*Servicio:* ${service}\n`;
     
-    // Si la usuaria seleccionó extras, los agregamos al mensaje
     if (extrasList.length > 0) {
       waText += `*Extras:* ${extrasList.join(', ')}\n`;
     }
     
-    waText += `\n`; // Espacio antes de los detalles
+    waText += `\n`; 
     
     if(message.trim() !== '') {
       waText += `*Detalles:* ${message}`;
@@ -208,7 +218,7 @@ if (whatsappForm) {
     window.open(waUrl, '_blank');
 
     submitBtn.textContent = currentLang === 'es' ? '¡Redirigiendo...!' : 'Redirecting...!';
-    submitBtn.style.background = 'var(--gold)'; // Usamos dorado para mantener la elegancia
+    submitBtn.style.background = 'var(--gold)'; 
     
     setTimeout(() => {
       submitBtn.textContent = currentLang === 'es' ? 'Escribir al WhatsApp →' : 'Message on WhatsApp →';
@@ -217,20 +227,18 @@ if (whatsappForm) {
     }, 3000);
   });
 }
+
 /* ─── FILTRO DE GALERÍA POR CATEGORÍA ────────────────── */
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const filter = btn.getAttribute('data-filter');
 
-    // Actualizar botón activo
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    // Filtrar items
     document.querySelectorAll('.gallery-item[data-category]').forEach(item => {
       if (filter === 'all' || item.getAttribute('data-category') === filter) {
         item.classList.remove('hidden');
-        // Re-trigger reveal animation
         item.classList.remove('visible');
         setTimeout(() => item.classList.add('visible'), 50);
       } else {
@@ -242,16 +250,14 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 
 /* ─── TABS DE PAQUETES ───────────────────────────────── */
 document.querySelectorAll('.pkg-tab').forEach(tab => {
-  if (tab.classList.contains('coming-soon')) return; // Ignorar pestañas "próximamente"
+  if (tab.classList.contains('coming-soon')) return; 
 
   tab.addEventListener('click', () => {
     const panelId = 'panel-' + tab.getAttribute('data-panel');
 
-    // Activar tab
     document.querySelectorAll('.pkg-tab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
 
-    // Mostrar panel
     document.querySelectorAll('.packages-panel').forEach(p => p.classList.remove('active'));
     const panel = document.getElementById(panelId);
     if (panel) panel.classList.add('active');
