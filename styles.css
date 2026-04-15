@@ -402,14 +402,31 @@ nav.nav-always-solid {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white; 
+  color: #000000; /* Cambiado de white a negro */
   z-index: 3;
   box-shadow: 0 10px 30px rgba(179,155,120,.3);
+  padding-bottom: 8px; /* Empuja todo el bloque de texto ligeramente hacia arriba */
 }
 
-.about-badge-num{font-size:2.4rem;line-height:1;}
-.about-badge-text{font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;margin-top:.2rem;text-align:center;line-height:1.5;color:white;}
+.about-badge-num {
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #000000; /* Aseguramos que el número sea negro */
+}
 
+.about-badge-text {
+  font-size: .52rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-top: 0;
+  text-align: center;
+  line-height: 1.5;
+  color: #000000;
+  font-family: 'Caviar Dreams Bold', sans-serif;
+  font-weight: normal;
+  padding: 0 10px;
+  -webkit-text-stroke: 0.4px #000000; 
+}
 .about-text{font-size:.88rem;line-height:2;color:var(--text-light);margin-top:1.8rem;}
 .about-signature{font-size:2.8rem;color:var(--lavender-d);margin-top:2.5rem;}
 
@@ -849,3 +866,4 @@ span.flatpickr-weekday {
 
 .flatpickr-prev-month svg, .flatpickr-next-month svg { fill: var(--lavender-d) !important; }
 .flatpickr-prev-month:hover svg, .flatpickr-next-month:hover svg { fill: var(--gold) !important; }
+
