@@ -106,18 +106,20 @@ img, .gallery-item, .about-img-frame {
 
 /* LANG */
 .lang-switch{display:flex;align-items:center;opacity:0;animation:fadeIn .6s 1.2s ease forwards;}
-.lang-btn{
-  border:none;
-  background:transparent;
-  cursor:pointer;
+.lang-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
   font-family: system-ui, -apple-system, sans-serif; 
-  font-size:.65rem;
-  font-weight:700;
-  letter-spacing:.25em;
-  text-transform:uppercase;
-  padding:.42rem .85rem;
-  color:var(--deep);
-  transition:background .3s,color .3s;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  padding: .42rem .85rem;
+  color: var(--deep);
+  transition: background .3s, color .3s;
+  text-decoration: none; /* NUEVO */
+  display: inline-block; /* NUEVO */
 }
 .lang-btn.active{background:var(--deep);color:var(--cream);}
 .lang-btn:hover:not(.active){background:rgba(155,135,204,.15);}
@@ -867,3 +869,15 @@ span.flatpickr-weekday {
 .flatpickr-prev-month svg, .flatpickr-next-month svg { fill: var(--lavender-d) !important; }
 .flatpickr-prev-month:hover svg, .flatpickr-next-month:hover svg { fill: var(--gold) !important; }
 
+/* Oculta elementos visualmente para mantener el diseño, pero los lee Google */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

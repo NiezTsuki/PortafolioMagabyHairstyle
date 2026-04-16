@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <!-- Página Principal -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
    <url>
       <loc>https://magabyhairstyle.com/</loc>
-      <lastmod>2026-04-15</lastmod>
+      <xhtml:link rel="alternate" hreflang="es" href="https://magabyhairstyle.com/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://magabyhairstyle.com/en/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://magabyhairstyle.com/" />
+      <lastmod>2026-04-16</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
    </url>
    
-   <!-- Galería de Portafolio -->
    <url>
       <loc>https://magabyhairstyle.com/galeria</loc>
-      <lastmod>2026-04-15</lastmod>
+      <xhtml:link rel="alternate" hreflang="es" href="https://magabyhairstyle.com/galeria" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://magabyhairstyle.com/en/galeria" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://magabyhairstyle.com/galeria" />
+      <lastmod>2026-04-16</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
+
+   <url>
+      <loc>https://magabyhairstyle.com/en/</loc>
+      <xhtml:link rel="alternate" hreflang="es" href="https://magabyhairstyle.com/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://magabyhairstyle.com/en/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://magabyhairstyle.com/" />
+      <lastmod>2026-04-16</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>1.0</priority>
+   </url>
+   
+   <url>
+      <loc>https://magabyhairstyle.com/en/galeria</loc>
+      <xhtml:link rel="alternate" hreflang="es" href="https://magabyhairstyle.com/galeria" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://magabyhairstyle.com/en/galeria" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://magabyhairstyle.com/galeria" />
+      <lastmod>2026-04-16</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
 </urlset>

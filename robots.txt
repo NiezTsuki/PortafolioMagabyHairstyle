@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://magabyhairstyle.com/sitemap.xml

@@ -95,46 +95,9 @@ if (lightbox && lightboxImg && lightboxClose) {
   });
 }
 
-/* SISTEMA DE TRADUCCIÓN E INTERNACIONALIZACIÓN (I18N) CON AUTO-DETECCIÓN */
-const userLang = navigator.language || navigator.userLanguage;
-let currentLang = userLang.toLowerCase().startsWith('en') ? 'en' : 'es';
-
-function applyLang(selectedLang) {
-  currentLang = selectedLang;
-  document.documentElement.lang = selectedLang;
-  
-  const heroWord = document.getElementById('heroBgWord');
-  if(heroWord) heroWord.textContent = selectedLang === 'es' ? 'magia' : 'magic';
-  
-  const loaderSub = document.getElementById('loaderSub');
-  if(loaderSub) loaderSub.textContent = selectedLang === 'es' ? 'La maga de las novias' : 'The magician of brides';
-  
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const translation = el.getAttribute('data-' + selectedLang); 
-    if (translation !== null) el.textContent = translation;
-  });
-  
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const translation = el.getAttribute('data-' + selectedLang); 
-    if (translation !== null) el.innerHTML = translation;
-  });
-  
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-lang') === selectedLang);
-  });
-
-  /* Cambiar idioma del calendario Flatpickr si existe */
-  const dateInput = document.getElementById('contactDate');
-  if (dateInput && dateInput._flatpickr) {
-    dateInput._flatpickr.set('locale', selectedLang === 'es' ? 'es' : 'default');
-  }
-}
-
-/* =========================================================
-   BLINDAJE DE EVENTOS: SE EJECUTAN SÓLO CUANDO EL DOM CARGA
-   ========================================================= */
+/* BLINDAJE DE EVENTOS: SE EJECUTAN SÓLO CUANDO EL DOM CARGA */
 document.addEventListener('DOMContentLoaded', () => {
-  applyLang(currentLang);
+  const docLang = document.documentElement.lang || 'es';
 
   /* LÓGICA DEL MENÚ HAMBURGUESA (MÓVILES) */
   const ham = document.getElementById('hamburger');
@@ -166,17 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
   /* INICIALIZAR CALENDARIO FLATPICKR */
   if (typeof flatpickr !== 'undefined' && document.getElementById('contactDate')) {
     flatpickr("#contactDate", {
-      locale: currentLang === 'es' ? 'es' : 'default', 
+      locale: docLang === 'es' ? 'es' : 'default', 
       dateFormat: "d \\de F, Y",
       minDate: "today",
       disableMobile: true 
     });
   }
-});
-
-/* LÓGICA BOTONES DE IDIOMA */
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
 });
 
 /* LÓGICA DE ENVÍO AL WHATSAPP DE MAGABY */
@@ -185,6 +143,9 @@ const whatsappForm = document.getElementById('whatsappForm');
 if (whatsappForm) {
   whatsappForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    
+    const docLang = document.documentElement.lang || 'es';
+    const isEn = docLang === 'en';
     
     const submitBtn = document.getElementById('formSubmit');
     const name = document.getElementById('contactName').value;
@@ -198,11 +159,14 @@ if (whatsappForm) {
 
     const phoneNumber = '50765660761';
 
-    let waText = `¡Hola Magaby! Quisiera consultar disponibilidad para mi boda:\n\n`;
-    waText += `*Novia:* ${name}\n`;
-    waText += `*Fecha:* ${date}\n`;
-    waText += `*Lugar/Hotel:* ${location}\n`;
-    waText += `*Servicio:* ${service}\n`;
+    let waText = isEn 
+      ? `Hello Magaby! I would like to check availability for my wedding:\n\n`
+      : `¡Hola Magaby! Quisiera consultar disponibilidad para mi boda:\n\n`;
+    
+    waText += isEn ? `*Bride:* ${name}\n` : `*Novia:* ${name}\n`;
+    waText += isEn ? `*Date:* ${date}\n` : `*Fecha:* ${date}\n`;
+    waText += isEn ? `*Location:* ${location}\n` : `*Lugar/Hotel:* ${location}\n`;
+    waText += isEn ? `*Service:* ${service}\n` : `*Servicio:* ${service}\n`;
     
     if (extrasList.length > 0) {
       waText += `*Extras:* ${extrasList.join(', ')}\n`;
@@ -211,24 +175,24 @@ if (whatsappForm) {
     waText += `\n`; 
     
     if(message.trim() !== '') {
-      waText += `*Detalles:* ${message}`;
+      waText += isEn ? `*Details:* ${message}` : `*Detalles:* ${message}`;
     }
 
     const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(waText)}`;
     window.open(waUrl, '_blank');
 
-    submitBtn.textContent = currentLang === 'es' ? '¡Redirigiendo...!' : 'Redirecting...!';
+    submitBtn.textContent = isEn ? 'Redirecting...!' : '¡Redirigiendo...!';
     submitBtn.style.background = 'var(--gold)'; 
     
     setTimeout(() => {
-      submitBtn.textContent = currentLang === 'es' ? 'Escribir al WhatsApp →' : 'Message on WhatsApp →';
+      submitBtn.textContent = isEn ? 'Message on WhatsApp →' : 'Escribir al WhatsApp →';
       submitBtn.style.background = 'var(--deep)';
       whatsappForm.reset(); 
     }, 3000);
   });
 }
 
-/* ─── FILTRO DE GALERÍA POR CATEGORÍA ────────────────── */
+/* FILTRO DE GALERÍA POR CATEGORÍA */
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const filter = btn.getAttribute('data-filter');
@@ -248,7 +212,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-/* ─── TABS DE PAQUETES ───────────────────────────────── */
+/* TABS DE PAQUETES */
 document.querySelectorAll('.pkg-tab').forEach(tab => {
   if (tab.classList.contains('coming-soon')) return; 
 
