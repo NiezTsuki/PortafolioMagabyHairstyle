@@ -159,11 +159,22 @@ if (whatsappForm) {
 
     const phoneNumber = '50765660761';
 
+    let eventType = isEn ? "my wedding" : "mi boda";
+    let clientLabel = isEn ? "*Bride:*" : "*Novia:*";
+
+    if (service.includes("Quincea")) {
+      eventType = isEn ? "my Quinceanera" : "mis Quince Años";
+      clientLabel = isEn ? "*Quinceanera:*" : "*Quinceañera:*";
+    } else if (service.includes("Colorimetr")) {
+      eventType = isEn ? "a colorimetry service" : "un servicio de colorimetría";
+      clientLabel = isEn ? "*Client:*" : "*Cliente:*";
+    }
+
     let waText = isEn 
-      ? `Hello Magaby! I would like to check availability for my wedding:\n\n`
-      : `¡Hola Magaby! Quisiera consultar disponibilidad para mi boda:\n\n`;
+      ? `Hello Magaby! I would like to check availability for ${eventType}:\n\n`
+      : `¡Hola Magaby! Quisiera consultar disponibilidad para ${eventType}:\n\n`;
     
-    waText += isEn ? `*Bride:* ${name}\n` : `*Novia:* ${name}\n`;
+    waText += `${clientLabel} ${name}\n`;
     waText += isEn ? `*Date:* ${date}\n` : `*Fecha:* ${date}\n`;
     waText += isEn ? `*Location:* ${location}\n` : `*Lugar/Hotel:* ${location}\n`;
     waText += isEn ? `*Service:* ${service}\n` : `*Servicio:* ${service}\n`;
@@ -214,8 +225,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 
 /* TABS DE PAQUETES */
 document.querySelectorAll('.pkg-tab').forEach(tab => {
-  if (tab.classList.contains('coming-soon')) return; 
-
   tab.addEventListener('click', () => {
     const panelId = 'panel-' + tab.getAttribute('data-panel');
 

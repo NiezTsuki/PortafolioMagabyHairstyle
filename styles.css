@@ -118,8 +118,8 @@ img, .gallery-item, .about-img-frame {
   padding: .42rem .85rem;
   color: var(--deep);
   transition: background .3s, color .3s;
-  text-decoration: none; /* NUEVO */
-  display: inline-block; /* NUEVO */
+  text-decoration: none; 
+  display: inline-block; 
 }
 .lang-btn.active{background:var(--deep);color:var(--cream);}
 .lang-btn:hover:not(.active){background:rgba(155,135,204,.15);}
@@ -171,7 +171,7 @@ nav.nav-always-solid {
   height: 70px;
   width: auto;
   margin: 0;
-  margin-top: 17px; /* Empujamos un poco hacia abajo para centrar ópticamente */
+  margin-top: 17px; 
   object-fit: contain;
   display: block;
   transform: scale(4.2);
@@ -297,7 +297,7 @@ nav.nav-always-solid {
   color: var(--text-dark);
   font-weight: normal;
   line-height: 1; 
-  margin-bottom: -0.15em; /* Aumentado margen negativo para acercar más verticalmente */
+  margin-bottom: -0.15em; 
   padding-bottom: 0;
   display: block;
   position: relative;
@@ -309,7 +309,7 @@ nav.nav-always-solid {
   font-size: clamp(4.5rem, 10vw, 8.5rem); 
   color: var(--text-dark);
   font-weight: normal;
-  letter-spacing: -0.04em; /* Juntamos un poquito más las letras horizontalmente */
+  letter-spacing: -0.04em; 
   text-transform: uppercase;
   position: relative;
   z-index: 1;
@@ -404,16 +404,16 @@ nav.nav-always-solid {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #000000; /* Cambiado de white a negro */
+  color: #000000; 
   z-index: 3;
   box-shadow: 0 10px 30px rgba(179,155,120,.3);
-  padding-bottom: 8px; /* Empuja todo el bloque de texto ligeramente hacia arriba */
+  padding-bottom: 8px; 
 }
 
 .about-badge-num {
   font-size: 2.4rem;
   line-height: 1;
-  color: #000000; /* Aseguramos que el número sea negro */
+  color: #000000; 
 }
 
 .about-badge-text {
@@ -497,16 +497,47 @@ nav.nav-always-solid {
 .pkg-tab{background:transparent;border:none;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mist);cursor:pointer;padding:.9rem 2.2rem;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .35s;position:relative;}
 .pkg-tab:hover{color:var(--lavender-d);}
 .pkg-tab.active{color:var(--deep);border-bottom-color:var(--lavender-d);}
-.pkg-tab.coming-soon{opacity:.55;cursor:default;}
-.pkg-tab.coming-soon::after{content:'Próximamente';position:absolute;top:-10px;right:-8px;background:var(--gold);color:white;font-family:'Caviar Dreams Bold',sans-serif;font-size:.45rem;letter-spacing:.2em;text-transform:uppercase;padding:.2rem .5rem;white-space:nowrap;}
 .packages-panel{display:none;}
 .packages-panel.active{display:block;}
-.coming-soon-view{text-align:center;padding:5rem 2rem;border:1px dashed var(--mist);background:var(--ivory);}
-.coming-soon-view .cs-icon{font-size:4rem;color:var(--lavender-d);display:block;margin-bottom:1.5rem;}
-.coming-soon-view h3{font-size:2rem;color:var(--deep);margin-bottom:1rem;}
-.coming-soon-view p{font-size:.88rem;color:var(--text-light);max-width:420px;margin:0 auto 2rem;line-height:1.9;}
-.coming-soon-view .cs-notify{display:inline-block;padding:.9rem 2rem;border:1px solid var(--lavender-d);color:var(--lavender-d);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;transition:all .35s;cursor:pointer;background:transparent;}
-.coming-soon-view .cs-notify:hover{background:var(--lavender-d);color:white;}
+
+/* Vistas de información para Quinceañeras y Colorimetría */
+.service-info-view {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: var(--ivory);
+  border: 1px solid var(--mist);
+}
+.service-info-view h3 {
+  font-family: 'Heavitas', sans-serif;
+  font-size: 1.8rem;
+  color: var(--deep);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.service-info-view p {
+  font-size: .88rem;
+  color: var(--text-light);
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.9;
+}
+.service-wa-btn {
+  display: inline-block;
+  padding: 1.1rem 2.5rem;
+  background: var(--deep);
+  color: var(--cream);
+  font-family: 'Caviar Dreams Bold', sans-serif;
+  font-size: .65rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .4s;
+}
+.service-wa-btn:hover {
+  background: var(--lavender-d);
+  color: white;
+}
+
 .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;align-items:start;}
 .package-card{padding:3.5rem 2.5rem;background:var(--lila-gris-1);border:1px solid var(--mist);position:relative;transition:all .4s;}
 .package-card.featured{background:var(--lila-gris-2);border-color:var(--lila-gris-2);transform:scale(1.04);box-shadow:0 30px 80px rgba(44,38,54,.08);}
@@ -743,7 +774,6 @@ footer{background:var(--footer-lilac);padding:5rem 6rem 3rem;color:var(--text-da
   .about-badge-num{font-size:1.9rem;}
   footer{padding:4rem 1.5rem 2rem;}
   .footer-top{grid-template-columns:1fr;gap:2rem;}
-  .pkg-tab.coming-soon::after{display:none;}
   
   .flatpickr-calendar {
     left: 0 !important;
