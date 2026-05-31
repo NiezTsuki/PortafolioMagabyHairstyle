@@ -29,10 +29,22 @@ module.exports = function handler(req, res) {
         if (!Array.isArray(files)) {
           return res.status(502).json({ error: 'Respuesta inesperada de ImageKit' });
         }
+
+        /* 🔴 SOLUCIÓN: Filtramos las imágenes para separarlas definitivamente */
+        let fotosFiltradas = files;
+        
+        // Si la web NO está pidiendo explícitamente las fotos de la portada (landing)...
+        if (tag !== 'landing') {
+          // ...filtramos y eliminamos de la lista cualquier foto que tenga el tag 'landing'
+          fotosFiltradas = files.filter(f => !(f.tags && f.tags.includes('landing')));
+        }
+
         res.setHeader('Cache-Control', 'public, max-age=60, stale-while-revalidate=120');
         res.setHeader('Content-Type', 'application/json');
+        
+        // Devolvemos la lista limpia
         res.status(200).json(
-          files.map((f) => ({
+          fotosFiltradas.map((f) => ({
             url: f.url,
             name: f.name,
             fileId: f.fileId,
