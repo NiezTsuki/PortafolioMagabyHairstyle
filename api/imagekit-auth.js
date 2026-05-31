@@ -19,11 +19,17 @@ function validateToken(token) {
   }
 }
 
-const ALLOWED_CATEGORIES = new Set(['civil', 'eclesiastico', 'hindu', 'china']);
+const ALLOWED_CATEGORIES = new Set(['civil', 'eclesiastico', 'hindu', 'china', 'landing']);
 
 module.exports = function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+  
+  // 🔴 ESTO ES LO NUEVO: Cabeceras estrictas anti-caché
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST' && req.method !== 'GET') return res.status(405).end();
 
@@ -42,7 +48,7 @@ module.exports = function handler(req, res) {
   const privateKey = process.env.IMAGEKIT_PRIVATE_KEY;
   const publicKey = process.env.IMAGEKIT_PUBLIC_KEY;
   if (!privateKey || !publicKey) {
-    return res.status(500).json({ error: 'ImageKit no configurado en variables de entorno' });
+    return res.status(500).json({ error: 'ImageKit no configurado' });
   }
 
   const expire = Math.floor(Date.now() / 1000) + 3600;

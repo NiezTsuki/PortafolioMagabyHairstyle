@@ -691,7 +691,11 @@ function makeDelBtn(onClick) {
 
 /* ── Upload helper ──────────────────────────────────── */
 async function uploadFile(file, index, tag) {
-  const authRes = await fetch('/api/imagekit-auth', { headers: { Authorization: `Bearer ${sessionToken}` } });
+  // 🔴 ESTO ES LO NUEVO: Añadimos ?t= para obligar a pedir un token fresco siempre
+  const authRes = await fetch('/api/imagekit-auth?t=' + Date.now(), { 
+    headers: { Authorization: `Bearer ${sessionToken}` } 
+  });
+  
   if (authRes.status === 401) throw new Error('SESSION_EXPIRED');
   if (!authRes.ok) throw new Error('Auth error');
   const auth = await authRes.json();
