@@ -512,7 +512,8 @@ async function loadPortada() {
   document.getElementById('portadaGrid').innerHTML =
     '<div class="state-loading" style="grid-column:1/-1"><div class="spinner"></div></div>';
   try {
-    const res = await fetch('/api/gallery?tag=landing');
+    /* Agregamos el parámetro Date.now() para forzar al servidor a enviar datos frescos y evitar "fotos fantasma" */
+    const res = await fetch('/api/gallery?tag=landing&t=' + Date.now());
     portadaImages = await res.json();
     if (!Array.isArray(portadaImages)) portadaImages = [];
   } catch { portadaImages = []; }
@@ -593,7 +594,8 @@ async function loadGestionar() {
   content.innerHTML = '<div class="state-loading"><div class="spinner"></div><span>Cargando fotos…</span></div>';
 
   try {
-    const res = await fetch('/api/gallery');
+    /* Agregamos el parámetro Date.now() para forzar al servidor a enviar datos frescos y evitar "fotos fantasma" */
+    const res = await fetch('/api/gallery?t=' + Date.now());
     const images = await res.json();
 
     if (!Array.isArray(images) || images.length === 0) {
@@ -603,13 +605,16 @@ async function loadGestionar() {
 
     content.innerHTML = '';
     
-    const groups = { landing: [], civil: [], eclesiastico: [], hindu: [], china: [], otros: [] };
+    const groups = { civil: [], eclesiastico: [], hindu: [], china: [], otros: [] };
     
     images.forEach(img => {
-      let placed = false;
+      /* Cambio clave: Si la imagen es de la portada, la ignoramos completamente en esta pestaña */
       if (img.tags && img.tags.includes('landing')) { 
-        groups.landing.push(img); placed = true; 
-      } else if (img.tags) {
+        return; 
+      } 
+      
+      let placed = false;
+      if (img.tags) {
         for (const cat of Object.keys(CAT_LABEL)) {
           if (img.tags.includes(cat)) { groups[cat].push(img); placed = true; break; }
         }
@@ -646,7 +651,7 @@ async function loadGestionar() {
       content.appendChild(sec);
     };
 
-    renderGroup('Portada Principal (Máx 6)', groups.landing);
+    /* Se eliminó la sección renderGroup de 'Portada Principal' para mantener la separación total */
     renderGroup('Civil & Exteriores', groups.civil);
     renderGroup('Eclesiástica', groups.eclesiastico);
     renderGroup('Hindú', groups.hindu);

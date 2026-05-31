@@ -235,17 +235,20 @@ document.querySelectorAll('.pkg-tab').forEach(tab => {
   });
 });
 
-// Ejecutar cuando el DOM esté listo
 document.addEventListener("DOMContentLoaded", () => {
   cargarPortada();
 });
 
 async function cargarPortada() {
-  const grid = document.getElementById('galleryGrid');
+  // Buscamos el NUEVO ID que es exclusivo para la página principal
+  const grid = document.getElementById('portadaGridHome');
+  
+  // Si no encuentra ese contenedor (ej. estamos en galeria.html), el script se detiene aquí mismo
   if (!grid) return;
 
   try {
-    const res = await fetch('/api/gallery?tag=landing');
+    // Solicitamos las fotos, usando ?t= para evitar el caché temporalmente
+    const res = await fetch('/api/gallery?tag=landing&t=' + Date.now());
     const images = await res.json();
 
     if (!Array.isArray(images) || images.length === 0) {
@@ -253,17 +256,18 @@ async function cargarPortada() {
       return;
     }
 
-    // Limpiamos el texto de "Cargando portafolio..."
     grid.innerHTML = ''; 
-
-    // Aseguramos que máximo se procesen 6 fotos
     const portadaImages = images.slice(0, 6);
 
     portadaImages.forEach(img => {
       const item = document.createElement('div');
-      item.className = 'gallery-item reveal reveal-active'; // Usamos tu clase para las animaciones
       
-      // Construimos la tarjeta. Usamos el parámetro ?tr=w-600 para optimizar peso y carga.
+      // Añadimos las clases correctas y forzamos la visibilidad
+      item.className = 'gallery-item'; 
+      item.style.opacity = '1';
+      item.style.transform = 'none';
+      item.style.visibility = 'visible';
+      
       item.innerHTML = `
         <img src="${img.url}?tr=w-600" alt="Magaby Hairstyle Portafolio" loading="lazy">
         <div class="gallery-overlay">
@@ -276,12 +280,12 @@ async function cargarPortada() {
         </div>
       `;
       
-      // Integración directa con tu componente de Lightbox
+      // Lógica de apertura del Lightbox
       item.addEventListener('click', () => {
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImg');
         if(lightbox && lightboxImg) {
-          lightboxImg.src = img.url; // Aquí cargamos la resolución original
+          lightboxImg.src = img.url; 
           lightbox.classList.add('active');
         }
       });
