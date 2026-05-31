@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Admin · Magaby Hairstyle</title>
   <link rel="icon" href="/images/web.png?v=2" sizes="96x96" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -30,6 +30,8 @@
       color: var(--text);
       font-family: 'Caviar Dreams', sans-serif;
       min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* ══════════════════════════════════
@@ -79,13 +81,13 @@
     /* ══════════════════════════════════
        UPLOAD VIEW
     ══════════════════════════════════ */
-    #uploadView { display: none; max-width: 720px; margin: 0 auto; padding: 0 1rem 5rem; }
+    #uploadView { display: none; width: 100%; max-width: 720px; margin: 0 auto; padding: 0 1.25rem 5rem; box-sizing: border-box; }
 
     .admin-bar { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0 1.1rem; border-bottom: 1px solid var(--border); margin-bottom: 1.75rem; position: sticky; top: 0; background: var(--bg); z-index: 20; }
     .admin-logo-wrap { width: 120px; height: 32px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
     .admin-logo { height: 32px; width: auto; flex-shrink: 0; transform: scale(4.0); transform-origin: center center; }
 
-    .tab-nav { display: flex; gap: 0.45rem; margin-bottom: 2rem; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .tab-nav { display: flex; gap: 0.45rem; margin-bottom: 2rem; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 0.5rem; }
     .tab-nav::-webkit-scrollbar { display: none; }
     .tab-btn { padding: 0.5rem 1.3rem; border-radius: 100px; border: 1px solid var(--border); background: var(--card); color: var(--muted); font-family: 'Caviar Dreams Bold', sans-serif; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.18s; white-space: nowrap; flex-shrink: 0; }
     .tab-btn:hover { border-color: var(--lavender); color: var(--text); }
@@ -100,18 +102,18 @@
 
     .drop-zone { border: 1.5px dashed var(--border); border-radius: 4px; padding: 2.5rem 1.5rem; text-align: center; cursor: pointer; transition: all 0.2s; margin-bottom: 1.5rem; background: var(--card); user-select: none; }
     .drop-zone:hover, .drop-zone.over { border-color: var(--lavender); background: rgba(166,145,204,.04); }
-    .drop-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .drop-icon { color: var(--muted); margin-bottom: 0.75rem; display: flex; justify-content: center; }
     .drop-main { font-family: 'Caviar Dreams Bold', sans-serif; font-size: 0.82rem; color: var(--text); margin-bottom: 0.35rem; }
     .drop-hint { font-size: 0.72rem; color: var(--muted); }
     .drop-hint em { color: var(--lavender); font-style: normal; }
 
-    #previewArea { display: none; margin-bottom: 1rem; }
+    #previewArea { display: none; margin-bottom: 1rem; width: 100%; }
     .preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 0.5rem; margin-bottom: 1rem; }
     .prev-item { position: relative; aspect-ratio: 1; border-radius: 4px; overflow: hidden; background: var(--border); }
     .prev-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .prev-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: rgba(0,0,0,.08); }
     .prev-bar-fill { height: 100%; background: var(--gold); width: 0%; transition: width 0.15s linear; }
-    .prev-badge { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; opacity: 0; transition: opacity 0.2s; }
+    .prev-badge { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-family: 'Caviar Dreams Bold', sans-serif; color: #fff; opacity: 0; transition: opacity 0.2s; background: rgba(0,0,0,0.4); }
     .prev-badge.show { opacity: 1; }
 
     .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
@@ -119,11 +121,11 @@
     /* ══════════════════════════════════
        IMAGE CARDS
     ══════════════════════════════════ */
-    .img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.65rem; }
+    .img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.65rem; width: 100%; }
     .img-card { position: relative; aspect-ratio: 1; border-radius: 4px; overflow: hidden; background: var(--border); }
     .img-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .img-tag { position: absolute; bottom: 6px; left: 6px; background: rgba(255,255,255,0.88); color: var(--muted); font-family: 'Caviar Dreams Bold', sans-serif; font-size: 0.48rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 100px; pointer-events: none; }
-    .img-del { position: absolute; top: 6px; right: 6px; width: 30px; height: 30px; background: rgba(255,255,255,0.92); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--error); font-size: 1rem; line-height: 1; transition: background 0.15s, color 0.15s; }
+    .img-del { position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; background: rgba(255,255,255,0.92); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--error); font-size: 1.1rem; line-height: 1; transition: background 0.15s, color 0.15s; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
     .img-del:hover { background: var(--error); color: #fff; }
 
     @media (hover: hover) {
@@ -135,13 +137,13 @@
        PORTADA TAB
     ══════════════════════════════════ */
     .portada-intro { font-size: 0.78rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.5rem; }
-    .portada-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem; margin-bottom: 1.25rem; }
+    .portada-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem; margin-bottom: 1.25rem; width: 100%; }
     .portada-slot { aspect-ratio: 3/4; border-radius: 4px; overflow: hidden; position: relative; }
     .portada-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .portada-slot .img-del { opacity: 1 !important; top: 5px; right: 5px; }
     .portada-empty { aspect-ratio: 3/4; border-radius: 4px; border: 1.5px dashed var(--border); background: var(--card); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; gap: 0.4rem; }
     .portada-empty:hover { border-color: var(--lavender); background: rgba(166,145,204,.04); }
-    .portada-empty-icon { font-size: 1.6rem; color: var(--border); line-height: 1; }
+    .portada-empty-icon { font-size: 1.6rem; color: var(--border); line-height: 1; font-family: 'Cormorant Garamond', serif; }
     .portada-empty-label { font-family: 'Caviar Dreams Bold', sans-serif; font-size: 0.52rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
     .portada-uploading { aspect-ratio: 3/4; border-radius: 4px; background: var(--card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
 
@@ -155,23 +157,42 @@
     .state-empty { text-align: center; padding: 3rem 0; color: var(--muted); font-size: 0.8rem; font-style: italic; }
 
     /* ══════════════════════════════════
+       CUSTOM MODAL
+    ══════════════════════════════════ */
+    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26, 26, 26, 0.6); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.2s ease-in-out; }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
+    .modal-card { background: var(--card); border-radius: 6px; width: 90%; max-width: 380px; padding: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.15); transform: translateY(20px); transition: all 0.2s ease-in-out; }
+    .modal-overlay.active .modal-card { transform: translateY(0); }
+    .modal-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.3rem; font-style: italic; margin-bottom: 0.5rem; color: var(--text); }
+    .modal-text { color: var(--muted); font-size: 0.8rem; line-height: 1.5; margin-bottom: 1.5rem; }
+    .modal-actions { display: flex; gap: 0.75rem; justify-content: flex-end; }
+    
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); padding: 0.7rem 1.2rem; border-radius: 4px; font-family: 'Caviar Dreams Bold', sans-serif; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+    .btn-outline:hover { border-color: var(--muted); }
+    .btn-danger { background: var(--error); color: #fff; border: none; padding: 0.7rem 1.2rem; border-radius: 4px; font-family: 'Caviar Dreams Bold', sans-serif; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+    .btn-danger:hover { background: #A93226; }
+
+    /* ══════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════ */
     @media (max-width: 600px) {
       .brand-logo-wrap { width: 240px; height: 64px; }
       .brand-logo { height: 64px; transform: scale(3.4); }
       .login-card { padding: 2rem 1.25rem; }
-      #uploadView { padding: 0 0.75rem 4rem; }
+      #uploadView { padding: 0 1rem 4rem; }
       .admin-logo-wrap { width: 100px; height: 26px; }
       .admin-logo { height: 26px; }
-      .img-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+      .img-grid { grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 0.5rem; }
       .portada-grid { gap: 0.5rem; }
+      .tab-nav { padding-bottom: 0.75rem; }
     }
 
     @media (max-width: 380px) {
       .brand-logo-wrap { width: 200px; height: 54px; }
       .brand-logo { height: 54px; transform: scale(3.0); }
       .portada-grid { grid-template-columns: repeat(2, 1fr); }
+      .img-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+      .modal-card { padding: 1.5rem; }
     }
   </style>
 </head>
@@ -232,7 +253,12 @@
 
     <div class="section-label">Seleccionar fotos</div>
     <div class="drop-zone" id="dropZone" role="button" tabindex="0">
-      <div class="drop-icon">📷</div>
+      <div class="drop-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+          <circle cx="12" cy="13" r="4"></circle>
+        </svg>
+      </div>
       <div class="drop-main">Toca aquí para elegir fotos</div>
       <div class="drop-hint">o arrastra y suelta · <em>Varias a la vez sin límite</em></div>
       <input type="file" id="fileInput" multiple accept="image/*" style="display:none" tabindex="-1">
@@ -247,7 +273,7 @@
 
     <div id="uploadedSection" style="display:none; margin-top:2rem;">
       <hr class="divider">
-      <div class="section-label">Subidas exitosamente ✓</div>
+      <div class="section-label">Subidas exitosamente</div>
       <div class="img-grid" id="uploadedGrid"></div>
     </div>
   </div>
@@ -271,6 +297,15 @@
 
 </div>
 
+<div id="customModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-title" id="modalTitle">Atención</div>
+    <div class="modal-text" id="modalText">Mensaje</div>
+    <div class="modal-actions" id="modalActions">
+      </div>
+  </div>
+</div>
+
 <script>
 /* ── State ─────────────────────────────────────────── */
 let sessionToken = localStorage.getItem('mgb_admin_v1');
@@ -284,6 +319,47 @@ const ALLOWED = ['image/jpeg','image/png','image/webp','image/heic','image/heif'
 const CAT_LABEL = { civil:'Civil', eclesiastico:'Eclesiástica', hindu:'Hindú', china:'China' };
 
 if (sessionToken) showUpload();
+
+/* ── Custom Modal Logic ────────────────────────────── */
+function showModal(title, text, isConfirm = false, onConfirm = null) {
+  const modal = document.getElementById('customModal');
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalText').textContent = text;
+  const actions = document.getElementById('modalActions');
+  actions.innerHTML = '';
+
+  if (isConfirm) {
+    const btnCancel = document.createElement('button');
+    btnCancel.className = 'btn-outline';
+    btnCancel.textContent = 'Cancelar';
+    btnCancel.onclick = () => closeModal();
+
+    const btnOk = document.createElement('button');
+    btnOk.className = 'btn-danger';
+    btnOk.textContent = 'Eliminar';
+    btnOk.onclick = () => {
+      closeModal();
+      if (onConfirm) onConfirm();
+    };
+
+    actions.appendChild(btnCancel);
+    actions.appendChild(btnOk);
+  } else {
+    const btnOk = document.createElement('button');
+    btnOk.className = 'btn-primary';
+    btnOk.style.width = 'auto';
+    btnOk.style.marginTop = '0';
+    btnOk.textContent = 'Aceptar';
+    btnOk.onclick = () => closeModal();
+    actions.appendChild(btnOk);
+  }
+
+  modal.classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('customModal').classList.remove('active');
+}
 
 /* ── Login ─────────────────────────────────────────── */
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
@@ -400,17 +476,16 @@ document.getElementById('uploadBtn').addEventListener('click', async () => {
     try {
       const result = await uploadFile(pendingFiles[i], i, selectedCategory);
       uploaded.push(result);
-      setBadge(i, '✓', 'rgba(39,174,96,.55)');
+      setBadge(i, 'OK', 'rgba(39,174,96,.85)');
     } catch (err) {
       if (err.message === 'SESSION_EXPIRED') { showLogin(); return; }
-      setBadge(i, '✗', 'rgba(192,57,43,.55)');
+      setBadge(i, 'ERR', 'rgba(192,57,43,.85)');
     }
   }
 
   if (uploaded.length) {
     const grid = document.getElementById('uploadedGrid');
     uploaded.forEach(f => {
-      // El label será null acá para no saturar si ya sabemos que lo subió a esta categoría
       const card = makeCard(f.url, f.fileId, CAT_LABEL[selectedCategory], () => { card.remove(); gestionarLoaded = false; });
       grid.prepend(card);
     });
@@ -470,7 +545,7 @@ function renderPortada() {
     slot.innerHTML = '<span class="portada-empty-icon">+</span><span class="portada-empty-label">Añadir</span>';
     slot.addEventListener('click', () => {
       if (portadaImages.length >= 6) {
-        showAlert(document.getElementById('portadaMsg'), 'Ya tienes 6 fotos. Elimina una para añadir otra.', 'error');
+        showModal('Límite alcanzado', 'Ya tienes 6 fotos. Elimina una para añadir otra.');
         return;
       }
       document.getElementById('portadaInput').click();
@@ -511,7 +586,7 @@ document.getElementById('portadaInput').addEventListener('change', async (e) => 
   }
 });
 
-/* ── Gestionar tab (Agrupado por Secciones) ─────────── */
+/* ── Gestionar tab ──────────────────────────────────── */
 async function loadGestionar() {
   if (gestionarLoaded) return;
   const content = document.getElementById('gestionarContent');
@@ -528,7 +603,6 @@ async function loadGestionar() {
 
     content.innerHTML = '';
     
-    // Agrupar imágenes por categoría para crear secciones
     const groups = { landing: [], civil: [], eclesiastico: [], hindu: [], china: [], otros: [] };
     
     images.forEach(img => {
@@ -605,7 +679,7 @@ function makeCard(url, fileId, label, onDeleted) {
 
 function makeDelBtn(onClick) {
   const btn = document.createElement('button');
-  btn.className = 'img-del'; btn.title = 'Eliminar'; btn.textContent = '×';
+  btn.className = 'img-del'; btn.title = 'Eliminar'; btn.innerHTML = '&times;';
   btn.addEventListener('click', onClick);
   return btn;
 }
@@ -647,18 +721,19 @@ async function uploadFile(file, index, tag) {
 }
 
 /* ── Delete helper ──────────────────────────────────── */
-async function deleteImage(fileId, onSuccess) {
-  if (!confirm('¿Eliminar esta foto? Esta acción no se puede deshacer.')) return;
-  try {
-    const res = await fetch('/api/delete', {
-      method: 'DELETE',
-      headers: { 'Authorization': `Bearer ${sessionToken}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ fileId }),
-    });
-    if (res.status === 401) { showLogin(); return; }
-    if (res.ok) onSuccess();
-    else alert('Error al eliminar. Intenta de nuevo.');
-  } catch { alert('Error de conexión.'); }
+function deleteImage(fileId, onSuccess) {
+  showModal('Eliminar foto', '¿Estás seguro de eliminar esta foto? Esta acción no se puede deshacer.', true, async () => {
+    try {
+      const res = await fetch('/api/delete', {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${sessionToken}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fileId }),
+      });
+      if (res.status === 401) { showLogin(); return; }
+      if (res.ok) onSuccess();
+      else showModal('Error', 'Error al eliminar. Intenta de nuevo.');
+    } catch { showModal('Error', 'Error de conexión.'); }
+  });
 }
 
 /* ── Utilities ──────────────────────────────────────── */
