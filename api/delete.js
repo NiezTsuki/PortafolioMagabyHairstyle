@@ -44,7 +44,7 @@ module.exports = function handler(req, res) {
   };
 
   const ikReq = https.request(options, (ikRes) => {
-    if (ikRes.statusCode === 204) {
+    if (ikRes.statusCode === 204 || ikRes.statusCode === 404) {
       res.setHeader('Content-Type', 'application/json');
       return res.status(200).json({ ok: true });
     }
