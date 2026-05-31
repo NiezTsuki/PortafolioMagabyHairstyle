@@ -7,9 +7,13 @@ module.exports = function handler(req, res) {
     return res.status(200).json([]);
   }
 
-  const credentials = Buffer.from(`${privateKey}:`).toString('base64');
-  const path = '/v1/files?path=%2Fportfolio&fileType=image&limit=500&sort=DESC_CREATED';
+  const tag = req.query && req.query.tag;
+  const limit = Math.min(parseInt((req.query && req.query.limit) || '500', 10), 500);
 
+  let path = '/v1/files?path=%2Fportfolio&fileType=image&sort=DESC_CREATED&limit=' + limit;
+  if (tag) path += '&tags=' + encodeURIComponent(tag);
+
+  const credentials = Buffer.from(`${privateKey}:`).toString('base64');
   const options = {
     hostname: 'api.imagekit.io',
     path,
@@ -25,7 +29,7 @@ module.exports = function handler(req, res) {
         if (!Array.isArray(files)) {
           return res.status(502).json({ error: 'Respuesta inesperada de ImageKit' });
         }
-        res.setHeader('Cache-Control', 'public, max-age=120, stale-while-revalidate=300');
+        res.setHeader('Cache-Control', 'public, max-age=60, stale-while-revalidate=120');
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(
           files.map((f) => ({
