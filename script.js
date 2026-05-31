@@ -234,3 +234,63 @@ document.querySelectorAll('.pkg-tab').forEach(tab => {
     if (panel) panel.classList.add('active');
   });
 });
+
+// Ejecutar cuando el DOM esté listo
+document.addEventListener("DOMContentLoaded", () => {
+  cargarPortada();
+});
+
+async function cargarPortada() {
+  const grid = document.getElementById('galleryGrid');
+  if (!grid) return;
+
+  try {
+    const res = await fetch('/api/gallery?tag=landing');
+    const images = await res.json();
+
+    if (!Array.isArray(images) || images.length === 0) {
+      grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--muted);">No hay fotos destacadas aún.</p>';
+      return;
+    }
+
+    // Limpiamos el texto de "Cargando portafolio..."
+    grid.innerHTML = ''; 
+
+    // Aseguramos que máximo se procesen 6 fotos
+    const portadaImages = images.slice(0, 6);
+
+    portadaImages.forEach(img => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item reveal reveal-active'; // Usamos tu clase para las animaciones
+      
+      // Construimos la tarjeta. Usamos el parámetro ?tr=w-600 para optimizar peso y carga.
+      item.innerHTML = `
+        <img src="${img.url}?tr=w-600" alt="Magaby Hairstyle Portafolio" loading="lazy">
+        <div class="gallery-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <line x1="11" y1="8" x2="11" y2="14"></line>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+          </svg>
+        </div>
+      `;
+      
+      // Integración directa con tu componente de Lightbox
+      item.addEventListener('click', () => {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        if(lightbox && lightboxImg) {
+          lightboxImg.src = img.url; // Aquí cargamos la resolución original
+          lightbox.classList.add('active');
+        }
+      });
+
+      grid.appendChild(item);
+    });
+
+  } catch (error) {
+    console.error("Error cargando la portada:", error);
+    grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--error);">Error al cargar las imágenes.</p>';
+  }
+}
