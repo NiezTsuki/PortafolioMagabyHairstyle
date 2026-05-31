@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin · Magaby Hairstyle</title>
+  <link rel="icon" href="/images/web.png?v=2" sizes="96x96" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Sephora & Hayden';
+      src: url('../fonts/Sephora_Hayden.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Heavitas';
+      src: url('../fonts/Heavitas.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Caviar Dreams';
+      src: url('../fonts/CaviarDreams.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Caviar Dreams Bold';
+      src: url('../fonts/CaviarDreams_Bold.ttf') format('truetype');
+    }
+
+    :root {
+      --bg:       #F4EFF5;
+      --card:     #FFFFFF;
+      --border:   #DDD5E8;
+      --text:     #1a1a1a;
+      --muted:    #685E7A;
+      --gold:     #B39B78;
+      --lavender: #A691CC;
+      --lav-lt:   #D9CBED;
+      --error:    #C0392B;
+      --ok:       #27AE60;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Caviar Dreams', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    /* ── LOGIN ────────────────────────────────── */
+    #loginView {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .brand-logo-wrap {
+      width: 300px;
+      height: 78px;
+      overflow: hidden;
+      margin: 0 auto 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-logo {
+      height: 78px;
+      width: auto;
+      flex-shrink: 0;
+      transform: scale(4.0);
+      transform-origin: center center;
+    }
+
+    .brand-sub {
+      font-family: 'Caviar Dreams Bold', sans-serif;
+      font-size: 0.58rem;
+      color: var(--muted);
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 480px) {
+      .brand-logo-wrap { width: 240px; height: 64px; }
+      .brand-logo { height: 64px; transform: scale(3.4); }
+      .login-card { padding: 1.75rem 1.25rem; }
+    }
+
+    .login-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 6px 32px rgba(166,145,204,0.10);
+    }
+
+    .login-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--text);
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+
+    .login-desc {
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    .field { margin-bottom: 1.1rem; }
+
+    .field label {
+      display: block;
+      font-family: 'Caviar Dreams Bold', sans-serif;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .field input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.72rem 0.9rem;
+      border-radius: 4px;
+      font-family: 'Caviar Dreams', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .field input:focus { border-color: var(--lavender); }
+    .field input::placeholder { color: #c0b8c8; }
+
+    /* ── BUTTONS ─────────────────────────────── */
+    .btn-primary {
+      width: 100%;
+      background: var(--text);
+      color: #fff;
+      border: none;
+      padding: 0.88rem;
+      border-radius: 4px;
+      font-family: 'Caviar Dreams Bold', sans-serif;
+      font-size: 0.68rem;
+      font-weight: normal;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.3s;
+    }
+
+    .btn-primary:hover:not(:disabled) { background: var(--lavender); }
+    .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    /* ── ALERT ───────────────────────────────── */
+    .alert {
+      border-radius: 4px;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.76rem;
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+    .alert-error { background: rgba(192,57,43,.06); border: 1px solid rgba(192,57,43,.22); color: var(--error); }
+    .alert-ok    { background: rgba(39,174,96,.06);  border: 1px solid rgba(39,174,96,.22);  color: var(--ok); }
+
+    /* ── UPLOAD PANEL ────────────────────────── */
+    #uploadView { display: none; width: 100%; max-width: 720px; }
+
+    .admin-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .admin-bar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .admin-bar-logo {
+      height: 44px;
+      width: auto;
+    }
+
+    .admin-bar-info {}
+
+    .admin-bar-name {
+      font-family: 'Sephora & Hayden', cursive;
+      font-size: 1.35rem;
+      color: var(--text);
+      font-weight: normal;
+      line-height: 1;
+    }
+
+    .admin-bar-label {
+      font-family: 'Caviar Dreams Bold', sans-serif;
+      font-size: 0.57rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .btn-logout {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.42rem 1rem;
+      border-radius: 4px;
+      font-family: 'Caviar Dreams Bold', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-logout:hover { border-color: var(--lavender); color: var(--text); }
+
+    .section-label {
+      font-family: 'Caviar Dreams Bold', sans-serif;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    /* ── CATEGORY PILLS ──────────────────────── */
+    .cat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .cat-pill {
+      padding: 0.45rem 1.2rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--muted);
+      font-family: 'Caviar Dreams Bold', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .cat-pill:hover { border-color: var(--lavender); color: var(--text); }
+    .cat-pill.active {
+      background: var(--text);
+      border-color: var(--text);
+      color: #fff;
+    }
+
+    /* ── DROP ZONE ───────────────────────────── */
+    .drop-zone {
+      border: 1.5px dashed var(--border);
+      border-radius: 4px;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 1.5rem;
+      background: var(--card);
+      user-select: none;
+    }
+    .drop-zone:hover, .drop-zone.over {
+      border-color: var(--lavender);
+      background: rgba(166,145,204,.04);
+    }
+    .drop-icon { font-size: 2.2rem; margin-bottom: 0.9rem; }
+    .drop-main {
+      font-family: 'Caviar Dreams Bold', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+    .drop-hint { font-size: 0.74rem; color: var(--muted); }
+    .drop-hint em { color: var(--lavender); font-style: normal; }
+
+    /* ── PREVIEW GRID ────────────────────────── */
+    #previewArea { display: none; }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .prev-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .prev-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .prev-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: rgba(0,0,0,.08);
+    }
+    .prev-bar-fill {
+      height: 100%;
+      background: var(--gold);
+      width: 0%;
+      transition: width 0.15s linear;
+    }
+    .prev-badge {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .prev-badge.show { opacity: 1; }
+
+    /* ── UPLOADED GRID ───────────────────────── */
+    #uploadedSection { display: none; margin-top: 2.5rem; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+    .uploaded-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 0.65rem;
+    }
+    .up-item {
+      aspect-ratio: 1;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .up-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  </style>
+</head>
+<body>
+
+<!-- ── LOGIN ─────────────────────── -->
+<div id="loginView">
+  <div class="brand">
+    <div class="brand-logo-wrap">
+      <img src="../images/logo.png" alt="Magaby Hairstyle" class="brand-logo">
+    </div>
+    <div class="brand-sub">Panel de Administración</div>
+  </div>
+
+  <div class="login-card">
+    <div class="login-title">Bienvenida</div>
+    <div class="login-desc">Ingresa tus credenciales para acceder al panel de carga de fotos.</div>
+
+    <form id="loginForm" autocomplete="on">
+      <div class="field">
+        <label for="loginUser">Usuario</label>
+        <input type="text" id="loginUser" name="username" autocomplete="username" required placeholder="usuario">
+      </div>
+      <div class="field">
+        <label for="loginPass">Contraseña</label>
+        <input type="password" id="loginPass" name="password" autocomplete="current-password" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn-primary" id="loginBtn">Entrar</button>
+      <div id="loginMsg" style="display:none"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ── UPLOAD PANEL ───────────────── -->
+<div id="uploadView">
+  <div class="admin-bar">
+    <div class="admin-bar-brand">
+      <img src="../images/logo.png" alt="Magaby Hairstyle" class="admin-bar-logo">
+      <div class="admin-bar-info">
+        <div class="admin-bar-name">Magaby Hairstyle</div>
+        <div class="admin-bar-label">Subir Fotos</div>
+      </div>
+    </div>
+    <button class="btn-logout" id="logoutBtn">Cerrar sesión</button>
+  </div>
+
+  <div class="section-label">Categoría de las fotos</div>
+  <div class="cat-row">
+    <button class="cat-pill active" data-cat="civil">Civil & Exteriores</button>
+    <button class="cat-pill" data-cat="eclesiastico">Eclesiástica</button>
+    <button class="cat-pill" data-cat="hindu">Hindú</button>
+    <button class="cat-pill" data-cat="china">China</button>
+  </div>
+
+  <div class="section-label">Seleccionar fotos</div>
+  <div class="drop-zone" id="dropZone" role="button" tabindex="0" aria-label="Seleccionar fotos">
+    <div class="drop-icon">📷</div>
+    <div class="drop-main">Toca aquí para elegir fotos</div>
+    <div class="drop-hint">o arrastra y suelta · <em>Puedes subir varias a la vez</em></div>
+    <input type="file" id="fileInput" multiple accept="image/*" style="display:none" tabindex="-1">
+  </div>
+
+  <div id="previewArea">
+    <div class="section-label" id="previewLabel">Fotos seleccionadas</div>
+    <div class="preview-grid" id="previewGrid"></div>
+    <div id="uploadMsg" style="display:none"></div>
+    <button class="btn-primary" id="uploadBtn">Subir fotos</button>
+  </div>
+
+  <div id="uploadedSection">
+    <hr class="divider">
+    <div class="section-label">Fotos subidas exitosamente ✓</div>
+    <div class="uploaded-grid" id="uploadedGrid"></div>
+  </div>
+</div>
+
+<script>
+  let sessionToken = localStorage.getItem('mgb_admin_v1');
+  let selectedCategory = 'civil';
+  let pendingFiles = [];
+
+  if (sessionToken) showUpload();
+
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('loginBtn');
+    const msg = document.getElementById('loginMsg');
+    btn.disabled = true;
+    btn.textContent = 'Entrando…';
+    msg.style.display = 'none';
+
+    try {
+      const res = await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: document.getElementById('loginUser').value.trim(),
+          password: document.getElementById('loginPass').value,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        sessionToken = data.token;
+        localStorage.setItem('mgb_admin_v1', sessionToken);
+        showUpload();
+      } else {
+        showAlert(msg, data.error || 'Credenciales incorrectas', 'error');
+      }
+    } catch {
+      showAlert(msg, 'Error de conexión. Intenta nuevamente.', 'error');
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Entrar';
+  });
+
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    sessionToken = null;
+    localStorage.removeItem('mgb_admin_v1');
+    showLogin();
+  });
+
+  document.querySelectorAll('.cat-pill').forEach((pill) => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.cat-pill').forEach((p) => p.classList.remove('active'));
+      pill.classList.add('active');
+      selectedCategory = pill.getAttribute('data-cat');
+    });
+  });
+
+  const dropZone = document.getElementById('dropZone');
+  const fileInput = document.getElementById('fileInput');
+
+  dropZone.addEventListener('click', () => fileInput.click());
+  dropZone.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') fileInput.click(); });
+  dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('over'); });
+  dropZone.addEventListener('dragleave', () => dropZone.classList.remove('over'));
+  dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('over');
+    const imgs = Array.from(e.dataTransfer.files).filter((f) => f.type.startsWith('image/'));
+    if (imgs.length) handleFiles(imgs);
+  });
+
+  fileInput.addEventListener('change', (e) => {
+    if (e.target.files.length) handleFiles(Array.from(e.target.files));
+    fileInput.value = '';
+  });
+
+  const MAX_MB = 20;
+  const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif'];
+
+  function handleFiles(files) {
+    const msgEl = document.getElementById('uploadMsg');
+    const rejected = files.filter(f => !ALLOWED_TYPES.includes(f.type) || f.size > MAX_MB * 1024 * 1024);
+    if (rejected.length) {
+      showAlert(msgEl, `${rejected.length} archivo(s) rechazado(s): solo JPG, PNG, WEBP o HEIC, máximo ${MAX_MB}MB cada uno.`, 'error');
+    }
+    files = files.filter(f => ALLOWED_TYPES.includes(f.type) && f.size <= MAX_MB * 1024 * 1024);
+    if (!files.length) return;
+
+    pendingFiles = files;
+    const grid = document.getElementById('previewGrid');
+    grid.innerHTML = '';
+
+    files.forEach((file, i) => {
+      const item = document.createElement('div');
+      item.className = 'prev-item';
+      item.id = 'pi-' + i;
+      const url = URL.createObjectURL(file);
+      item.innerHTML = `
+        <img src="${url}" alt="">
+        <div class="prev-bar"><div class="prev-bar-fill" id="pb-${i}"></div></div>
+        <div class="prev-badge" id="pbadge-${i}"></div>
+      `;
+      grid.appendChild(item);
+    });
+
+    const label = document.getElementById('previewLabel');
+    const n = files.length;
+    label.textContent = `${n} foto${n !== 1 ? 's' : ''} seleccionada${n !== 1 ? 's' : ''}`;
+
+    const btn = document.getElementById('uploadBtn');
+    btn.textContent = `Subir ${n} foto${n !== 1 ? 's' : ''}`;
+    btn.disabled = false;
+
+    document.getElementById('uploadMsg').style.display = 'none';
+    document.getElementById('previewArea').style.display = 'block';
+  }
+
+  document.getElementById('uploadBtn').addEventListener('click', async () => {
+    const btn = document.getElementById('uploadBtn');
+    const msgEl = document.getElementById('uploadMsg');
+    btn.disabled = true;
+    btn.textContent = 'Subiendo…';
+    msgEl.style.display = 'none';
+
+    const total = pendingFiles.length;
+    const uploaded = [];
+
+    for (let i = 0; i < pendingFiles.length; i++) {
+      try {
+        const result = await uploadOne(pendingFiles[i], i);
+        uploaded.push(result);
+        setBadge(i, '✓', 'rgba(39,174,96,.55)');
+      } catch (err) {
+        if (err.message === 'SESSION_EXPIRED') { showLogin(); return; }
+        setBadge(i, '✗', 'rgba(192,57,43,.55)');
+      }
+    }
+
+    if (uploaded.length > 0) showUploaded(uploaded);
+
+    const ok = uploaded.length;
+    const fail = total - ok;
+    if (fail === 0) {
+      showAlert(msgEl, `¡Listo! ${ok} foto${ok !== 1 ? 's' : ''} subida${ok !== 1 ? 's' : ''} correctamente.`, 'ok');
+      pendingFiles = [];
+      setTimeout(() => {
+        document.getElementById('previewArea').style.display = 'none';
+        document.getElementById('previewGrid').innerHTML = '';
+      }, 2000);
+    } else {
+      showAlert(msgEl, `${ok} subida${ok !== 1 ? 's' : ''}, ${fail} con error. Intenta de nuevo las marcadas.`, 'error');
+    }
+
+    btn.textContent = 'Subir más fotos';
+    btn.disabled = false;
+  });
+
+  async function uploadOne(file, index) {
+    const authRes = await fetch('/api/imagekit-auth', {
+      headers: { Authorization: `Bearer ${sessionToken}` },
+    });
+    if (authRes.status === 401) throw new Error('SESSION_EXPIRED');
+    if (!authRes.ok) throw new Error('Auth error');
+
+    const auth = await authRes.json();
+    const safeName = Date.now() + '_' + file.name.replace(/[^\w.-]/g, '_');
+
+    const fd = new FormData();
+    fd.append('file', file);
+    fd.append('fileName', safeName);
+    fd.append('publicKey', auth.publicKey);
+    fd.append('signature', auth.signature);
+    fd.append('expire', String(auth.expire));
+    fd.append('token', auth.token);
+    fd.append('folder', '/portfolio');
+    fd.append('tags', selectedCategory);
+
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.upload.addEventListener('progress', (e) => {
+        if (e.lengthComputable) setProgress(index, Math.round((e.loaded / e.total) * 90));
+      });
+      xhr.addEventListener('load', () => {
+        setProgress(index, 100);
+        if (xhr.status === 200) {
+          try { resolve(JSON.parse(xhr.responseText)); }
+          catch { reject(new Error('Parse error')); }
+        } else {
+          reject(new Error('HTTP ' + xhr.status));
+        }
+      });
+      xhr.addEventListener('error', () => reject(new Error('Network error')));
+      xhr.open('POST', 'https://upload.imagekit.io/api/v1/files/upload');
+      xhr.send(fd);
+    });
+  }
+
+  function setProgress(i, pct) {
+    const bar = document.getElementById('pb-' + i);
+    if (bar) bar.style.width = pct + '%';
+  }
+
+  function setBadge(i, symbol, bg) {
+    const badge = document.getElementById('pbadge-' + i);
+    if (badge) {
+      badge.textContent = symbol;
+      badge.style.background = bg;
+      badge.classList.add('show');
+    }
+  }
+
+  function showUploaded(files) {
+    const grid = document.getElementById('uploadedGrid');
+    files.forEach((f) => {
+      const item = document.createElement('div');
+      item.className = 'up-item';
+      item.innerHTML = `<img src="${f.url}" alt="Foto subida" loading="lazy">`;
+      grid.prepend(item);
+    });
+    document.getElementById('uploadedSection').style.display = 'block';
+  }
+
+  function showAlert(el, msg, type) {
+    el.className = 'alert alert-' + (type === 'error' ? 'error' : 'ok');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+
+  function showLogin() {
+    document.getElementById('loginView').style.display = 'block';
+    document.getElementById('uploadView').style.display = 'none';
+  }
+
+  function showUpload() {
+    document.getElementById('loginView').style.display = 'none';
+    document.getElementById('uploadView').style.display = 'block';
+  }
+</script>
+</body>
+</html>

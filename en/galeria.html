@@ -12,7 +12,6 @@
   <link rel="alternate" hreflang="x-default" href="https://magabyhairstyle.com/galeria.html" />
 
   <link rel="icon" href="/images/web.png?v=2" sizes="96x96" type="image/png">
-  
   <link rel="stylesheet" href="/styles.css">
 
   <style>
@@ -20,6 +19,35 @@
       animation-delay: 0s !important;
       opacity: 1 !important;
       animation: none !important;
+    }
+    .gal-loading {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 1rem;
+      gap: 1rem;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.88rem;
+      width: 100%;
+    }
+    .gal-spinner {
+      width: 32px;
+      height: 32px;
+      border: 2px solid rgba(201,169,110,0.15);
+      border-top-color: rgba(201,169,110,0.7);
+      border-radius: 50%;
+      animation: galSpin 0.75s linear infinite;
+    }
+    @keyframes galSpin { to { transform: rotate(360deg); } }
+    .gal-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 5rem 1rem;
+      color: rgba(255,255,255,0.3);
+      font-style: italic;
+      width: 100%;
     }
   </style>
 </head>
@@ -67,7 +95,7 @@
       <p class="section-eyebrow reveal" style="color:var(--gold)">Full Collection</p>
       <h1 class="section-title reveal reveal-delay-1">Art in<br><em>pictures</em></h1>
     </div>
-    
+
     <div class="gallery-filters reveal">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="eclesiastico">Church</button>
@@ -76,201 +104,7 @@
       <button class="filter-btn" data-filter="china">Chinese</button>
     </div>
 
-   <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/1.jpg" alt="Loose waves hairstyle for civil wedding" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/2.jpg" alt="Elegant low updo for civil bride in Panama" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/3.jpg" alt="Modern bridal styling for outdoor wedding" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/5.jpg" alt="Hollywood waves for romantic civil bride look" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/6.jpg" alt="Textured bridal ponytail hairstyle" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/8.jpg" alt="Short hair bridal styling civil wedding" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/10.jpg" alt="Messy bun boho style bride" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/11.jpg" alt="Getting ready bride hair preparation" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/13.jpg" alt="Bride doing makeup and hair in Panama" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/16.jpg" alt="Hairstylist Magaby working on bride at hotel" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/17.jpg" alt="Final touch bridal hair photoshoot" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/18.jpg" alt="Extreme hold hairspray bridal hair Magaby" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/19.jpg" alt="Flawless bridal hair outdoor beach wedding" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/20.jpg" alt="Side view bridal hair civil wedding Panama" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/21.jpg" alt="Bridal styling at Magaby beauty studio" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/22.jpg" alt="Hair preparation with extensions for bride" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/23.jpg" alt="Half up half down detailed wedding hairstyle" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/24.jpg" alt="Defined bridal waves humidity proof" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/28.jpg" alt="Modern civil bride hair with floral headpiece" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/29.jpg" alt="Structured elegant bridal updo" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/31.jpg" alt="Bridal accessory placement Magaby" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-      <div class="gallery-item reveal" data-category="civil">
-        <img src="https://magabyhairstyle.com/images/novias/34.jpg" alt="High bridal bun for daytime wedding" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Civil</span>
-      </div>
-
-      <div class="gallery-item reveal" data-category="eclesiastico">
-        <img src="https://magabyhairstyle.com/images/novias/4.jpg" alt="Bridal hair for classic church wedding" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Church</span>
-      </div>
-      <div class="gallery-item reveal" data-category="eclesiastico">
-        <img src="https://magabyhairstyle.com/images/novias/7.jpg" alt="Updo with veil placed by bridal stylist" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Church</span>
-      </div>
-      <div class="gallery-item reveal" data-category="eclesiastico">
-        <img src="https://magabyhairstyle.com/images/novias/9.jpg" alt="Princess style church wedding hair" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Church</span>
-      </div>
-      <div class="gallery-item reveal" data-category="eclesiastico">
-        <img src="https://magabyhairstyle.com/images/novias/12.jpg" alt="Bridal hair with sparkling crown" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Church</span>
-      </div>
-      <div class="gallery-item reveal" data-category="eclesiastico">
-        <img src="https://magabyhairstyle.com/images/novias/14.jpg" alt="Secure bridal veil attachment" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Church</span>
-      </div>
-      <div class="gallery-item reveal" data-category="eclesiastico">
-        <img src="https://magabyhairstyle.com/images/novias/15.jpg" alt="Catholic church bride updo Panama" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Church</span>
-      </div>
-      <div class="gallery-item reveal" data-category="eclesiastico">
-        <img src="https://magabyhairstyle.com/images/novias/25.jpg" alt="Romantic voluminous updo for the altar" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Church</span>
-      </div>
-      <div class="gallery-item reveal" data-category="eclesiastico">
-        <img src="https://magabyhairstyle.com/images/novias/30.jpg" alt="Textured low bun church wedding" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Church</span>
-      </div>
-
-      <div class="gallery-item reveal" data-category="hindu">
-        <img src="https://magabyhairstyle.com/images/novias/26.jpg" alt="Traditional hairstyle for Hindu wedding" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Hindu</span>
-      </div>
-      <div class="gallery-item reveal" data-category="hindu">
-        <img src="https://magabyhairstyle.com/images/novias/27.jpg" alt="Tikka and veil placement Hindu wedding" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Hindu</span>
-      </div>
-      <div class="gallery-item reveal" data-category="hindu">
-        <img src="https://magabyhairstyle.com/images/novias/32.jpg" alt="Updo with accessories for Indian bride" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Hindu</span>
-      </div>
-      <div class="gallery-item reveal" data-category="hindu">
-        <img src="https://magabyhairstyle.com/images/novias/33.jpg" alt="Adorned bridal braid Hindu wedding" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Hindu</span>
-      </div>
-      <div class="gallery-item reveal" data-category="hindu">
-        <img src="https://magabyhairstyle.com/images/novias/36.jpg" alt="Sangeet ceremony bride styling" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Hindu</span>
-      </div>
-      <div class="gallery-item reveal" data-category="hindu">
-        <img src="https://magabyhairstyle.com/images/novias/37.jpg" alt="Reception hairstyle Indian wedding Panama" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Hindu</span>
-      </div>
-
-      <div class="gallery-item reveal" data-category="china">
-        <img src="https://magabyhairstyle.com/images/novias/35.jpg" alt="Bridal hairstyle for traditional Chinese wedding" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Chinese</span>
-      </div>
-      <div class="gallery-item reveal" data-category="china">
-        <img src="https://magabyhairstyle.com/images/novias/38.jpg" alt="Updo with gold ornaments Chinese bride" loading="lazy">
-        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-        <span class="gallery-cat-tag">Chinese</span>
-      </div>
-    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
   </section>
 
   <footer>
@@ -300,5 +134,52 @@
   </div>
 
   <script src="/script.js" defer></script>
+  <script>
+  (function () {
+    var CAT = { civil: 'Civil', eclesiastico: 'Church', hindu: 'Hindu', china: 'Chinese' };
+    var ZOOM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>';
+    var grid = document.getElementById('galleryGrid');
+    grid.innerHTML = '<div class="gal-loading"><div class="gal-spinner"></div><p>Loading photos…</p></div>';
+
+    function revealItems(items) {
+      if (!window.IntersectionObserver) {
+        items.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      items.forEach(function (el) { obs.observe(el); });
+    }
+
+    fetch('/api/gallery')
+      .then(function (r) { return r.json(); })
+      .then(function (images) {
+        if (!Array.isArray(images) || images.length === 0) {
+          grid.innerHTML = '<p class="gal-empty">Incredible photos coming soon.</p>';
+          return;
+        }
+        grid.innerHTML = '';
+        var newItems = [];
+        images.forEach(function (img) {
+          var cat = (img.tags && img.tags[0]) || 'civil';
+          var label = CAT[cat] || cat;
+          var item = document.createElement('div');
+          item.className = 'gallery-item reveal';
+          item.dataset.category = cat;
+          item.innerHTML =
+            '<img src="' + img.url + '" alt="' + label + ' bridal hairstyle · Magaby Hairstyle" loading="lazy">' +
+            '<div class="gallery-overlay">' + ZOOM + '</div>' +
+            '<span class="gallery-cat-tag">' + label + '</span>';
+          grid.appendChild(item);
+          newItems.push(item);
+        });
+        revealItems(newItems);
+      })
+      .catch(function () {
+        grid.innerHTML = '<p class="gal-empty">Could not load photos. Please refresh the page.</p>';
+      });
+  })();
+  </script>
 </body>
 </html>
